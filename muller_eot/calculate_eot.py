@@ -14,6 +14,18 @@ import numpy as np
 # E = (angle) eccentric anomaly: used to calculate the area of elliptic sectors
 # e = eccentricity of Earth = 0.0167
 
+def calculateOrbitalPeriod(semimajor_axis):
+	# caculate orbital period (days): P**2 = a**2 where P=period and a = semimajor axis
+	# return a list of days starting at midnight
+	sidereal_year = pow(semimajor_axis, 3/2)
+	orbital_period_days = sidereal_year * 365.25
+	return orbital_period_days
+
+def calculateEccentricity(aphelion_distance, perihelion_distance):
+	# caclulate the eccentricity of orbit based on orbit
+	eccentricity_orbit = (aphelion_distance - perihelion_distance) / (aphelion_distance + perihelion_distance)
+	return eccentricity_orbit
+
 def calculatePerihelionDay():
 	 # calendar day of perihelion (ranges from 3 to 5th)
 	## TODO
@@ -26,7 +38,7 @@ def calculateDistanceBetweenSolisticePerhelion():
 	distance_between_solistice_perhelion_deg = 14.40 # 2020
 	return distance_between_solistice_perhelion_deg
 
-def calculateDifferenceEOTMinutes(eccentricity, obliquity_deg, orbit_period, day_x):
+def calculateDifferenceEOTMinutes(eccentricity, obliquity_deg, orbit_period):
 	distance_between_solistice_perhelion_deg = calculateDistanceBetweenSolisticePerhelion()
 	distance_between_solistice_perhelion_rad = np.deg2rad(distance_between_solistice_perhelion_deg)
 	obliquity_rad = np.deg2rad(obliquity_deg)
@@ -48,7 +60,8 @@ def calculateDifferenceEOTMinutes(eccentricity, obliquity_deg, orbit_period, day
 	time_mins = (24 * 60) / (2 * math.pi)
 	eot_mins = []
 	perihelion_day = calculatePerihelionDay()
-	for d in day_x:
+	orbit_days_x = np.arange(1, round(orbit_period), 1)
+	for d in orbit_days_x:
 		m = 2*math.pi*((d - perihelion_day)/orbit_period)
 		a = tan2_1_4e2*math.sin(2*(m+distance_between_solistice_perhelion_rad))+e2*math.sin(m)
 		b = tan2_2e*math.sin(m+2*distance_between_solistice_perhelion_rad)+tan2_2e*math.sin(3*m+2*distance_between_solistice_perhelion_rad)
@@ -59,17 +72,18 @@ def calculateDifferenceEOTMinutes(eccentricity, obliquity_deg, orbit_period, day
 
 	return eot_mins
 
-def calculateEffectEccentricity(eccentricity, orbit_period, days_x):
-	eot_eccentricty_mins =  calculateDifferenceEOTMinutes(eccentricity, 0, orbit_period, days_x)
+def calculateEffectEccentricity(eccentricity, orbit_period):
+	eot_eccentricty_mins =  calculateDifferenceEOTMinutes(eccentricity, 0, orbit_period)
 	return eot_eccentricty_mins
 
-def generateEffectObliquity(obliquity, orbit_period, days_x):
-	eot_obliquity_mins = calculateDifferenceEOTMinutes(0, obliquity, orbit_period, days_x)
+def generateEffectObliquity(obliquity, orbit_period):
+	eot_obliquity_mins = calculateDifferenceEOTMinutes(0, obliquity, orbit_period)
 	return eot_obliquity_mins
 
-def plotEOT(days_x, eot_y, title_plot):
+def plotEOT(orbital_period_x, eot_y, title_plot):
 	fig = plt.figure(figsize=(12,12), dpi=120)
-	plt.scatter(days_x, eot_y)
+	orbital_period_days_lst = np.arange(1, round(orbital_period_x), 1)
+	plt.scatter(orbital_period_days_lst, eot_y)
 	plt.grid()
 	plt.title("Equation of Time - Difference in Minutes, due to {0}".format(title_plot))
 	plt.show()
