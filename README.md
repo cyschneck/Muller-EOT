@@ -10,6 +10,10 @@ Equation of Time = (Apparent Solar Time) - (Mean solar time)
 
 The mean solar time assumes eccentricity of 0 and obliquity of 0°
 
+![image](https://user-images.githubusercontent.com/22159116/203484389-613ffb3e-9719-4962-a316-eeeb887af1c5.png)
+![image](https://user-images.githubusercontent.com/22159116/203484492-bf0f6098-fe13-44d3-b372-bcb8cc4120f8.png)
+
+
 "Equation of time is determined by the following parameters: the eccentricity of 
 the orbit of the Earth, the angle between the ecliptic and the equatorial planes, the 
 angle P between the winter solstice and the perihelion relative to the sun or: 
@@ -45,9 +49,19 @@ aphelion is the summer solstice). Therefore, the resulting function is symmetric
 extreme values are in autumn and winter. If ∆t increases, the two components tend to
 compensate each other in winter whereas the negative value in summer begins to dominate."
 
+![image](https://user-images.githubusercontent.com/22159116/203484623-72008d48-6677-498b-bbcf-bf53ee137779.png)
+
+
 "The derivation does not account for minor effects due to the gravitation fields of the moon and the planets. In principle, therefore, a comparison of the results of such an idealized equation fo time with actual observations can be used to estimate the magnitudes of these effects." (Müller, 1995)
 
+![image](https://user-images.githubusercontent.com/22159116/203484797-23c81e99-0eee-4431-bc21-31429a615e4f.png)
+
 As a result of Kepler's law, planets moving in an ellipitc orbit will have variable angular velocity as a result of the second law where the area swept during a constant period of time is constant (=dA/dt)
+
+![image](https://user-images.githubusercontent.com/22159116/203484692-b07bad99-3c6c-43e5-904f-04200f72c571.png)
+
+Equation of Time is the combination of the effect of eccentricity and obliquity
+![image](https://user-images.githubusercontent.com/22159116/203484851-c96be35a-2d4a-44df-a2ee-a9d88974aa9e.png)
 
 ## Documentation
 ## Dependencies
