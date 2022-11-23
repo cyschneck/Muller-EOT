@@ -3,8 +3,8 @@
 # Python Package Setup
 from setuptools import setup, find_namespace_packages
 
-VERSION="0.0.1"
-DESCRIPTION="A Python package for M. Müller implementation of the Equation of Time"
+VERSION="0.0.2"
+DESCRIPTION="A Python package for M. Müller implementation of the 'Equation of Time - Problem in Astronomy'"
 
 with open("README.md", "r") as f:
 	long_description_readme = f.read()
@@ -39,6 +39,7 @@ setup(
 	include_package_data=True,
 	install_requires=[
 		"matplotlib>=3.1.0",
+		"numpy>=1.21.6",
 	],
 	python_requires='>=3.7'
 )

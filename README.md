@@ -6,20 +6,33 @@ A Python package for [M. Müller implementation of the "Equation of Time - Probl
 
 ## Overview
 
-Equation of Time = (Apparent Solar Time) - (Mean solar time) 
+There are only four times of year where the length of the day is almost exactly 24 hours. 
+The rest of the year when the sun is at its highest point (solar noon), a clock can run 
+as much as 16 minutes ahead (12:16pm) or 13 minutes behind (11:47am). This discrepency is 
+the result of combined effect of a planet's obliquity (axial tilt) and its eccentricity (as
+well as other smaller gravitional forces like moons that are ignored here). Both of thsee 
+features form two sine curves that oscillate throughout the year. The combined sum
+of these two curves form the Equation of Time, a non-uniform change in time to fix to a clock.
+A planet with an obliquity of 0° and perfectly circular orbit (zero eccentricity) would have
+no difference in the Expected Solar Noon and the Actual Solar Noon.
 
-The mean solar time assumes eccentricity of 0 and obliquity of 0°
+Equation of Time = (Apparent Solar Time) - (Mean Solar Time) 
 
+_Effect of Obliquity:_
 ![image](https://user-images.githubusercontent.com/22159116/203484389-613ffb3e-9719-4962-a316-eeeb887af1c5.png)
+_Effect of Eccentricity:_
 ![image](https://user-images.githubusercontent.com/22159116/203484492-bf0f6098-fe13-44d3-b372-bcb8cc4120f8.png)
 
 
 "Equation of time is determined by the following parameters: the eccentricity of 
 the orbit of the Earth, the angle between the ecliptic and the equatorial planes, the 
 angle P between the winter solstice and the perihelion relative to the sun or: 
-the time span ∆t from the beginning of winter to the passage through periehlion"
+the time span ∆t from the beginning of winter to the passage through periehlion" (Müller, 1995)
 
-Apparent solar time is the difference as a result of the two largest features: eccentricity and obliquity
+![image](https://user-images.githubusercontent.com/22159116/203484797-23c81e99-0eee-4431-bc21-31429a615e4f.png)
+![image](https://user-images.githubusercontent.com/22159116/203484692-b07bad99-3c6c-43e5-904f-04200f72c571.png)
+
+The effect of obliquity and eccentricity are the caused as a result of Kepler's law:
 
 "Two well-known features of our solar system are at the basis of the variations
  in the apparent motion of the sun: 1.) According to Kepler's second law, the angular
@@ -27,7 +40,13 @@ Apparent solar time is the difference as a result of the two largest features: e
  which the sun in its apparent movement goes through in the eclipitic do not correspond
  to equal angles we measure on the equatorial plane. However, it is these latter angles
  which are relevant for the measure of time, since the daily movement of the sun is
- parallel to the equatorial plane"
+ parallel to the equatorial plane" (Müller, 1995)
+ 
+_Effect on Angular Velocity:_
+As a result of Kepler's law, planets moving in an ellipitc orbit will have variable angular velocity 
+as a result of the second law where the area swept during a constant period of time is constant (=dA/dt)
+
+![image](https://user-images.githubusercontent.com/22159116/203484623-72008d48-6677-498b-bbcf-bf53ee137779.png)
 
 "1.) parameter: the eccentricity. If e = 0 a regular variation results that is caused by
 the inclination of the ecliptic plane. The deviations of the apparent solar time from the
@@ -47,18 +66,7 @@ through the perihelion. If ∆t = 0 the two main variations vanish both at the b
 of winter and summer (because winter begins when the earth passes the perihelion; the
 aphelion is the summer solstice). Therefore, the resulting function is symmetric and the
 extreme values are in autumn and winter. If ∆t increases, the two components tend to
-compensate each other in winter whereas the negative value in summer begins to dominate."
-
-![image](https://user-images.githubusercontent.com/22159116/203484623-72008d48-6677-498b-bbcf-bf53ee137779.png)
-
-
-"The derivation does not account for minor effects due to the gravitation fields of the moon and the planets. In principle, therefore, a comparison of the results of such an idealized equation fo time with actual observations can be used to estimate the magnitudes of these effects." (Müller, 1995)
-
-![image](https://user-images.githubusercontent.com/22159116/203484797-23c81e99-0eee-4431-bc21-31429a615e4f.png)
-
-As a result of Kepler's law, planets moving in an ellipitc orbit will have variable angular velocity as a result of the second law where the area swept during a constant period of time is constant (=dA/dt)
-
-![image](https://user-images.githubusercontent.com/22159116/203484692-b07bad99-3c6c-43e5-904f-04200f72c571.png)
+compensate each other in winter whereas the negative value in summer begins to dominate." (Müller, 1995)
 
 Equation of Time is the combination of the effect of eccentricity and obliquity
 ![image](https://user-images.githubusercontent.com/22159116/203484851-c96be35a-2d4a-44df-a2ee-a9d88974aa9e.png)
