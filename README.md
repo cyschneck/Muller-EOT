@@ -78,3 +78,5 @@ pip install muller-eot
 calculateDistanceBetweenSolisticePerhelion() function
 
 calculatePerihelionDay() function
+
+calculateEccentricity() function
