@@ -1,8 +1,5 @@
 # Test generate_star_chart functions
 # python3 generate_examples_eot_charts.py
-import matplotlib.pyplot as plt
-import math
-import numpy as np
 import muller_eot
 
 if __name__ == '__main__':
