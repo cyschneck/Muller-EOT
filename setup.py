@@ -3,8 +3,8 @@
 # Python Package Setup
 from setuptools import setup, find_namespace_packages
 
-VERSION="0.0.2"
-DESCRIPTION="A Python package for M. Müller implementation of the 'Equation of Time - Problem in Astronomy'"
+VERSION="0.0.3"
+DESCRIPTION="A Python package for M. Müller implementation of the 'Equation of Time - Problem in Astronomy' to calculate EOT and the effect of eccentricity/obliquity"
 
 with open("README.md", "r") as f:
 	long_description_readme = f.read()
