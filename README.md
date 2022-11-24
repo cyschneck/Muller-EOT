@@ -2,7 +2,15 @@
 ![PyPi](https://img.shields.io/pypi/v/muller-eot)
 ![license](https://img.shields.io/github/license/cyschneck/Muller-EOT)
 
-A Python package for [M. Müller implementation of the "Equation of Time - Problem in Astronomy"](http://info.ifpan.edu.pl/firststep/aw-works/fsII/mul/mueller.pdf)
+A Python package for [M. Müller implementation of the "Equation of Time - Problem in Astronomy"](http://info.ifpan.edu.pl/firststep/aw-works/fsII/mul/mueller.pdf) to calculate EOT and the effect of eccentricity/obliquity
+
+The combined effect of eccentricity and obliquity create the Equation of Time components. This package uses Müller implementation to allow for the components to be graphed seperately as well as the final EOT
+
+| Effect of Eccentricity | Effect of Obliquity |
+| ------------- | ------------- |
+| ![effect_eccentricity](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eccentricity_testing.png) | ![effect_obliquity](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_obliquity_testing.png) |
+
+![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot_testing.png)
 
 ## Overview
 
@@ -18,19 +26,27 @@ no difference in the Expected Solar Noon and the Actual Solar Noon.
 
 Equation of Time = (Apparent Solar Time) - (Mean Solar Time) 
 
-_Effect of Obliquity:_
-![image](https://user-images.githubusercontent.com/22159116/203484389-613ffb3e-9719-4962-a316-eeeb887af1c5.png)
-_Effect of Eccentricity:_
-![image](https://user-images.githubusercontent.com/22159116/203484492-bf0f6098-fe13-44d3-b372-bcb8cc4120f8.png)
+**Effect of Eccentricity:**
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22159116/203484492-bf0f6098-fe13-44d3-b372-bcb8cc4120f8.png" />
+</p>
 
+**Effect of Obliquity:**
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22159116/203484389-613ffb3e-9719-4962-a316-eeeb887af1c5.png" />
+</p>
 
 "Equation of time is determined by the following parameters: the eccentricity of 
 the orbit of the Earth, the angle between the ecliptic and the equatorial planes, the 
 angle P between the winter solstice and the perihelion relative to the sun or: 
 the time span ∆t from the beginning of winter to the passage through periehlion" (Müller, 1995)
 
-![image](https://user-images.githubusercontent.com/22159116/203484797-23c81e99-0eee-4431-bc21-31429a615e4f.png)
-![image](https://user-images.githubusercontent.com/22159116/203484692-b07bad99-3c6c-43e5-904f-04200f72c571.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22159116/203484797-23c81e99-0eee-4431-bc21-31429a615e4f.png" />
+</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22159116/203484692-b07bad99-3c6c-43e5-904f-04200f72c571.png" />
+</p>
 
 The effect of obliquity and eccentricity are the caused as a result of Kepler's law:
 
@@ -42,11 +58,14 @@ The effect of obliquity and eccentricity are the caused as a result of Kepler's 
  which are relevant for the measure of time, since the daily movement of the sun is
  parallel to the equatorial plane" (Müller, 1995)
  
-_Effect on Angular Velocity:_
+**Effect on Angular Velocity:**
+
 As a result of Kepler's law, planets moving in an ellipitc orbit will have variable angular velocity 
 as a result of the second law where the area swept during a constant period of time is constant (=dA/dt)
 
-![image](https://user-images.githubusercontent.com/22159116/203484623-72008d48-6677-498b-bbcf-bf53ee137779.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22159116/203687968-4055d194-afe0-49e8-8b73-94f1b58a3969.png" />
+</p>
 
 "1.) parameter: the eccentricity. If e = 0 a regular variation results that is caused by
 the inclination of the ecliptic plane. The deviations of the apparent solar time from the
@@ -69,7 +88,9 @@ extreme values are in autumn and winter. If ∆t increases, the two components t
 compensate each other in winter whereas the negative value in summer begins to dominate." (Müller, 1995)
 
 Equation of Time is the combination of the effect of eccentricity and obliquity
-![image](https://user-images.githubusercontent.com/22159116/203484851-c96be35a-2d4a-44df-a2ee-a9d88974aa9e.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22159116/203484851-c96be35a-2d4a-44df-a2ee-a9d88974aa9e.png" />
+</p>
 
 ## Documentation
 ## Dependencies
