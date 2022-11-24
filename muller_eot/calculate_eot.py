@@ -4,10 +4,18 @@ import numpy as np
 
 import muller_eot 
 
+# EQUATION OF TIME - PROBLEM IN ASTRONOMY
+# M. Müller
+# Gymnasium Münchenstein, Grellingerstrasse 5,
+# 4142 Münchenstein, Switzerland
+# This paper was awarded in the II International Competition (1993/94) ”First Step to Nobel Prize in Physics” and published in the competition proceedings (Acta Phys. Pol. A 88 Supplement, S-49 (1995))
+
 # EOT:
 # Equation of Time = (apparent solar time) - (mean solar time)
+# Equation of Time = "True Equatorial Sun Angle" - "Mean Equatorial Sun Angle" (Geocentric View) - (True Projected Anomaly - Mean anomaly) (heliocentric view)
+# Equation of Time = M - R^P
 
-# Effect of Eccentricity:
+# Effect of Eccentricity and Obliquity:
 # R = true anomaly: angle covered by Earth after leaving perihelion
 # M = mean anomaly: mean earth would cover an angle (called mean anomaly) in the same period of time as true earth covers the angle R
 # T = One year: revolution lasts on year
@@ -15,7 +23,7 @@ import muller_eot
 # M = 2pi * (t/T) ==> mean anomaly = (time span since perhelion / total time) in radians
 # E = (angle) eccentric anomaly: used to calculate the area of elliptic sectors
 # e = eccentricity of Earth = 0.0167
-# ε = 23.45◦
+# ε = obliquity of Earth = 23.45◦
 
 def calculateDifferenceEOTMinutes(eccentricity, obliquity_deg, orbit_period):
 	distance_between_solistice_perhelion_deg = muller_eot.calculateDistanceBetweenSolisticePerhelion()
@@ -28,7 +36,8 @@ def calculateDifferenceEOTMinutes(eccentricity, obliquity_deg, orbit_period):
 
 	eot_mins = []
 	orbit_days_x = np.arange(1, round(orbit_period), 1)
-	# Equation [45]: expansion of sine function yields:
+
+	# Equation [45], page 11: expansion of sine function yields:
 	for day in orbit_days_x:
 		mean_anomaly = 2 * math.pi * ((day - perihelion_day) / orbit_period) # M from [2]
 		tan2 = (1 - math.cos(obliquity_rad)) / (1 + math.cos(obliquity_rad)) # tan2(ε/2)
@@ -69,18 +78,10 @@ def calculateDifferenceEOTMinutes(eccentricity, obliquity_deg, orbit_period):
 		line_five = tan6_1_3 * sin6_m_p
 
 		eot_mins.append(-( line_one + line_two + line_three + line_four + line_five)*minutes_conversion)
-
 	return eot_mins
 
-def calculateEffectEccentricity(eccentricity, orbit_period):
-	eot_eccentricty_mins =  calculateDifferenceEOTMinutes(eccentricity, 0, orbit_period)
-	return eot_eccentricty_mins
 
-def generateEffectObliquity(obliquity, orbit_period):
-	eot_obliquity_mins = calculateDifferenceEOTMinutes(0, obliquity, orbit_period)
-	return eot_obliquity_mins
-
-def plotEOT(planet_name, orbital_period, eot_y, variation_type):
+def plotEOT(planet_name, orbital_period, eot_y, variation_type, save_plot_name):
 	fig = plt.figure(figsize=(12,12), dpi=120)
 
 	# X - Axis, split by months
@@ -89,9 +90,11 @@ def plotEOT(planet_name, orbital_period, eot_y, variation_type):
 	for i, value in enumerate(date_range_split_into_months): date_range_split_into_months[i] = math.floor(value) # round all values
 	
 	plt.xticks(date_range_split_into_months)
+	plt.xlim([min(date_range_split_into_months), max(date_range_split_into_months)])
 	plt.scatter(orbit_days_x, eot_y)
 	plt.grid()
 	plt.title("{0}: Effect of {1} (Min = {2:.4f}, Max = {3:.4f})".format(planet_name, variation_type, min(eot_y), max(eot_y)))
 	plt.xlabel("Days in the Sidereal Year")
 	plt.ylabel("Time Difference (Minutes)")
 	plt.show()
+	fig.savefig(save_plot_name)
