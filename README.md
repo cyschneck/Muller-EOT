@@ -92,6 +92,10 @@ Equation of Time is the combination of the effect of eccentricity and obliquity
   <img src="https://user-images.githubusercontent.com/22159116/203484851-c96be35a-2d4a-44df-a2ee-a9d88974aa9e.png" />
 </p>
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22159116/203877814-c2d710f3-0681-4f72-8607-0f96e2a33256.png" />
+</p>
+
 ## Documentation
 ## Dependencies
 ## Install
