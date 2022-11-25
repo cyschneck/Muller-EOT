@@ -18,7 +18,7 @@ def calculatePerihelionDay():
 	return day_of_perhelion    
 
 def calculateDistanceBetweenSolisticePerhelion():
-	# angle covered by the Earth between the begnning of Winer (21st December) and the arrival of the Earth at perihelion (2nd January)
+	# angle covered by the Earth between the begnning of Winter (21st December) and the arrival of the Earth at perihelion (2nd January)
 	## TODO
 	distance_between_solistice_perhelion_deg = 14.40 # 2020
 	return distance_between_solistice_perhelion_deg

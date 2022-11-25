@@ -25,7 +25,13 @@ import muller_eot
 # e = eccentricity of Earth = 0.0167
 # ε = obliquity of Earth = 23.45◦
 
-def calculateDifferenceEOTMinutes(eccentricity, obliquity_deg, orbit_period):
+def calculateDifferenceEOTMinutes(eccentricity=None,
+								obliquity_deg=None,
+								orbit_period=None):
+	# Calculate the time difference (in minutes) for the Equation of Time
+
+	muller_eot.errorHandlingEOT(eccentricity, obliquity_deg, orbit_period)
+
 	distance_between_solistice_perhelion_deg = muller_eot.calculateDistanceBetweenSolisticePerhelion()
 	distance_between_solistice_perhelion_rad = np.deg2rad(distance_between_solistice_perhelion_deg)
 
@@ -80,9 +86,18 @@ def calculateDifferenceEOTMinutes(eccentricity, obliquity_deg, orbit_period):
 		eot_mins.append(-( line_one + line_two + line_three + line_four + line_five)*minutes_conversion)
 	return eot_mins
 
+def plotEOT(planet_name=None,
+			orbital_period=[],
+			eot_y=[],
+			effect_title_str=None,
+			figsize_n=12,
+			figsize_dpi=100,
+			save_plot_name=None):
+	# Plot EOT Time Differences
 
-def plotEOT(planet_name, orbital_period, eot_y, variation_type, save_plot_name):
-	fig = plt.figure(figsize=(12,12), dpi=120)
+	muller_eot.errorHandlingPlotEOT(planet_name, orbital_period, eot_y, effect_title_str, figsize_n, figsize_dpi, save_plot_name)
+
+	fig = plt.figure(figsize=(figsize_n,figsize_n), dpi=figsize_dpi)
 
 	# X - Axis, split by months
 	orbit_days_x = np.arange(1, round(orbital_period), 1)
@@ -93,8 +108,11 @@ def plotEOT(planet_name, orbital_period, eot_y, variation_type, save_plot_name):
 	plt.xlim([min(date_range_split_into_months), max(date_range_split_into_months)])
 	plt.scatter(orbit_days_x, eot_y)
 	plt.grid()
-	plt.title("{0}: Effect of {1} (Min = {2:.4f}, Max = {3:.4f})".format(planet_name, variation_type, min(eot_y), max(eot_y)))
+
+	plt.title("{0}: Effect of {1} (Min = {2:.4f}, Max = {3:.4f})".format(planet_name, effect_title_str, min(eot_y), max(eot_y)))
 	plt.xlabel("Days in the Sidereal Year")
 	plt.ylabel("Time Difference (Minutes)")
 	plt.show()
-	fig.savefig(save_plot_name)
+
+	if save_plot_name:
+		fig.savefig(save_plot_name)
