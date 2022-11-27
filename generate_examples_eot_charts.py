@@ -18,13 +18,31 @@ if __name__ == '__main__':
 			orbital_period_planet = muller_eot.calculateOrbitalPeriod(planet[3])
 
 			# Effect of Eccentricity
-			eccentricity_y = muller_eot.calculateDifferenceEOTMinutes(eccentricity=planet[1], obliquity_deg=0, orbit_period=orbital_period_planet)
-			muller_eot.plotEOT(planet_name=planet[0], orbital_period=orbital_period_planet, eot_y=eccentricity_y, effect_title_str="Eccentricity ({0})".format(planet[1]), save_plot_name="examples/{0}_eccentricity_testing".format(planet[0].lower()))
+			eccentricity_y = muller_eot.calculateDifferenceEOTMinutes(eccentricity=planet[1],
+																	obliquity_deg=0,
+																	orbit_period=orbital_period_planet)
+			muller_eot.plotEOT(planet_name=planet[0], 
+								orbital_period=orbital_period_planet, 
+								eot_y=eccentricity_y, 
+								effect_title_str="Eccentricity ({0})".format(planet[1]), 
+								save_plot_name="examples/{0}_eccentricity_testing".format(planet[0].lower()))
 
 			# Effect of Obliquity
-			obliquity_y = muller_eot.calculateDifferenceEOTMinutes(eccentricity=0, obliquity_deg=planet[2], orbit_period=orbital_period_planet)
-			muller_eot.plotEOT(planet_name=planet[0], orbital_period=orbital_period_planet, eot_y=obliquity_y, effect_title_str="Obliquity ({0})".format(planet[2]), save_plot_name="examples/{0}_eccentricity_testing".format(planet[0].lower()))
+			obliquity_y = muller_eot.calculateDifferenceEOTMinutes(eccentricity=0, 
+																	obliquity_deg=planet[2], 
+																	orbit_period=orbital_period_planet)
+			muller_eot.plotEOT(planet_name=planet[0],
+								orbital_period=orbital_period_planet,
+								eot_y=obliquity_y,
+								effect_title_str="Obliquity ({0})".format(planet[2]),
+								save_plot_name="examples/{0}_eccentricity_testing".format(planet[0].lower()))
 
 			# Combined Effect of Obliquity and Eccentricity
-			eot_combined_y = muller_eot.calculateDifferenceEOTMinutes(eccentricity=planet[1], obliquity_deg=planet[2], orbit_period=orbital_period_planet)
-			muller_eot.plotEOT(planet_name=planet[0], orbital_period=orbital_period_planet, eot_y=obliquity_y, effect_title_str="Eccentricity ({0}) and Obliquity ({1})".format(planet[1], planet[2]), save_plot_name="examples/{0}_eccentricity_testing".format(planet[0].lower()))
+			eot_combined_y = muller_eot.calculateDifferenceEOTMinutes(eccentricity=planet[1],
+																	obliquity_deg=planet[2],
+																	orbit_period=orbital_period_planet)
+			muller_eot.plotEOT(planet_name=planet[0],
+								orbital_period=orbital_period_planet,
+								eot_y=eot_combined_y,
+								effect_title_str="Eccentricity ({0}) and Obliquity ({1})".format(planet[1], planet[2]),
+								save_plot_name="examples/{0}_eccentricity_testing".format(planet[0].lower()))

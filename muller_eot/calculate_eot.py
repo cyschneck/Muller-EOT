@@ -87,7 +87,7 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 	return eot_mins
 
 def plotEOT(planet_name=None,
-			orbital_period=[],
+			orbital_period=None,
 			eot_y=[],
 			effect_title_str=None,
 			figsize_n=12,
