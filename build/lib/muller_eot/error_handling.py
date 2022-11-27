@@ -14,20 +14,29 @@ def errorHandlingEOT(eccentricity,
 					orbit_period):
 
 	# Ensure that eccentricity is a float or int
-	if type(eccentricity) != int and type(eccentricity) != float:
+	if eccentricity is not None and type(eccentricity) != int and type(eccentricity) != float:
 		logger.critical("\nCRITICAL ERROR, [eccentricity]: Must be a int or float, current type = '{0}'".format(type(eccentricity)))
+		exit()
+	if eccentricity is None:
+		logger.critical("\nCRITICAL ERROR, [eccentricity]: Must be a int or float, currently is 'None'")
 		exit()
 	logger.debug("eccentricity = '{0}'".format(eccentricity))
 
 	# Ensure that obliquity_deg is a float or int
-	if type(obliquity_deg) != int and type(obliquity_deg) != float:
+	if obliquity_deg is not None and type(obliquity_deg) != int and type(obliquity_deg) != float:
 		logger.critical("\nCRITICAL ERROR, [obliquity_deg]: Must be a int or float, current type = '{0}'".format(type(obliquity_deg)))
+		exit()
+	if obliquity_deg is None:
+		logger.critical("\nCRITICAL ERROR, [obliquity_deg]: Must be a int or float, currently is 'None'")
 		exit()
 	logger.debug("obliquity_deg = '{0}'".format(obliquity_deg))
 
 	# Ensure that orbit_period is a float or int
-	if type(orbit_period) != int and type(orbit_period) != float:
+	if orbit_period is not None and type(orbit_period) != int and type(orbit_period) != float:
 		logger.critical("\nCRITICAL ERROR, [orbit_period]: Must be a int or float, current type = '{0}'".format(type(orbit_period)))
+		exit()
+	if orbit_period is None:
+		logger.critical("\nCRITICAL ERROR, [orbit_period]: Must be a int or float, currently is 'None'")
 		exit()
 	logger.debug("orbit_period = '{0}'".format(orbit_period))
 
@@ -43,24 +52,39 @@ def errorHandlingPlotEOT(planet_name,
 	if type(planet_name) != str:
 		logger.critical("\nCRITICAL ERROR, [planet_name]: Must be a str, current type = '{0}'".format(type(planet_name)))
 		exit()
+	if planet_name is None:
+		logger.critical("\nCRITICAL ERROR, [planet_name]: Must be a int or float, currently is 'None'")
+		exit()
 	logger.debug("planet_name = '{0}'".format(planet_name))
 
 	# Ensure that orbital_period is a float or int
 	if type(orbital_period) != int and type(orbital_period) != float:
 		logger.critical("\nCRITICAL ERROR, [orbital_period]: Must be a int or float, current type = '{0}'".format(type(orbital_period)))
 		exit()
+	if orbital_period is None:
+		logger.critical("\nCRITICAL ERROR, [orbital_period]: Must be a int or float, currently is 'None'")
+		exit()
 	logger.debug("orbital_period = '{0}'".format(orbital_period))
 
 	# Ensure that all y values for minute differences is a float or int
+	if type(eot_y) is not list:
+		logger.critical("\nCRITICAL ERROR, [eot_y]: Must be a list, currently is '{0}'".format(type(eot_y)))
+		exit()
 	for minute_dif in eot_y:
 		if type(minute_dif) != int and type(minute_dif) != float:
-			logger.critical("\nCRITICAL ERROR, [minute_dif]: Must be a int or float, current type = '{0}'".format(type(minute_dif)))
+			logger.critical("\nCRITICAL ERROR, [eot_y]: Must be a int or float, current type = '{0}'".format(type(minute_dif)))
 			exit()
-		logger.debug("minute_dif = '{0}'".format(minute_dif))
+	if len(eot_y) < 1:
+		logger.critical("\nCRITICAL ERROR, [eot_y]: Must have a length greater than zero")
+		exit()
+	logger.debug("eot_y = '{0}'".format(eot_y))
 
 	# Ensure that the effect title type is a string
 	if type(effect_title_str) != str:
 		logger.critical("\nCRITICAL ERROR, [effect_title_str]: Must be a str, current type = '{0}'".format(type(effect_title_str)))
+		exit()
+	if effect_title_str is None:
+		logger.critical("\nCRITICAL ERROR, [effect_title_str]: Must be a str, currently is 'None'")
 		exit()
 	logger.debug("effect_title_str = '{0}'".format(effect_title_str))
 
