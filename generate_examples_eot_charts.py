@@ -14,7 +14,7 @@ if __name__ == '__main__':
 					["Neptune", 0.0086, 29.56, 30.0611]]
 
 	for planet in planet_lst:
-		if True:#planet[0] == "Earth":
+		if planet[0] == "Earth":
 			orbital_period_planet = muller_eot.calculateOrbitalPeriod(planet[3])
 
 			# Effect of Eccentricity

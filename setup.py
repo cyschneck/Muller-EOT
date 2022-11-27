@@ -3,7 +3,7 @@
 # Python Package Setup
 from setuptools import setup, find_namespace_packages
 
-VERSION="0.0.4"
+VERSION="1.0.0"
 DESCRIPTION="A Python package for M. Müller implementation of the 'Equation of Time - Problem in Astronomy' to calculate EOT and the effect of eccentricity/obliquity"
 
 with open("README.md", "r") as f:
@@ -21,7 +21,7 @@ setup(
 	keywords=["astronomy", "python", "eot", "equation of time", "eccentricity", "obliquity"],
 	license="MIT",
 	classifiers=[
-		"Development Status :: 1 - Planning",
+		"Development Status :: 4 - Beta",
 		"Intended Audience :: Developers",
 		"Intended Audience :: Education",
 		"Intended Audience :: Science/Research",

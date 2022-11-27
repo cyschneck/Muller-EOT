@@ -30,7 +30,9 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 								orbit_period=None):
 	# Calculate the time difference (in minutes) for the Equation of Time
 
-	muller_eot.errorHandlingEOT(eccentricity, obliquity_deg, orbit_period)
+	muller_eot.errorHandlingEOT(eccentricity,
+								obliquity_deg,
+								orbit_period) # Verify argument behavior
 
 	distance_between_solistice_perhelion_deg = muller_eot.calculateDistanceBetweenSolisticePerhelion()
 	distance_between_solistice_perhelion_rad = np.deg2rad(distance_between_solistice_perhelion_deg)
@@ -95,7 +97,13 @@ def plotEOT(planet_name=None,
 			save_plot_name=None):
 	# Plot EOT Time Differences
 
-	muller_eot.errorHandlingPlotEOT(planet_name, orbital_period, eot_y, effect_title_str, figsize_n, figsize_dpi, save_plot_name)
+	muller_eot.errorHandlingPlotEOT(planet_name,
+									orbital_period,
+									eot_y,
+									effect_title_str,
+									figsize_n,
+									figsize_dpi,
+									save_plot_name) # Verify argument behavior
 
 	fig = plt.figure(figsize=(figsize_n,figsize_n), dpi=figsize_dpi)
 
