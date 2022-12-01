@@ -4,12 +4,13 @@
 
 A Python package for [M. Müller implementation of the "Equation of Time - Problem in Astronomy"](http://info.ifpan.edu.pl/firststep/aw-works/fsII/mul/mueller.pdf) to calculate EOT and the effect of eccentricity/obliquity
 
-The combined effect of eccentricity and obliquity create the Equation of Time components. This package uses Müller implementation to allow for the components to be graphed seperately as well as the final EOT
+The combined effect of eccentricity and obliquity create the Equation of Time components.
 
 | Effect of Eccentricity | Effect of Obliquity |
 | ------------- | ------------- |
 | ![effect_eccentricity](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eccentricity_testing.png) | ![effect_obliquity](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_obliquity_testing.png) |
 
+Combined Effect of the Eccentricity and Obliquity = Equation of Time
 ![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot_testing.png)
 
 ## Overview
@@ -92,6 +93,7 @@ Equation of Time is the combination of the effect of eccentricity and obliquity
   <img src="https://user-images.githubusercontent.com/22159116/203484851-c96be35a-2d4a-44df-a2ee-a9d88974aa9e.png" />
 </p>
 
+To calculate the difference in time for an individual day:
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22159116/203877814-c2d710f3-0681-4f72-8607-0f96e2a33256.png" />
 </p>
@@ -118,6 +120,10 @@ plotEOT(planet_name=None,
 		save_plot_name=None)
 ```
 ## Dependencies
+Python 3.7
+```
+pip3 install -r requirements.txt
+```
 ## Install
 PyPi pip install at [pypi.org/project/muller-eot/](https://pypi.org/project/muller-eot/)
 
@@ -144,6 +150,9 @@ muller_eot.plotEOT(planet_name="Earth",
 ```
 
 ## Tests
+
+TODO
+
 ## TODO:
 
 calculateOrbitalPeriod(semimajor_axis) function
@@ -151,5 +160,7 @@ calculateOrbitalPeriod(semimajor_axis) function
 calculateDistanceBetweenSolisticePerhelion() function
 
 calculatePerihelionDay() function
+
+calculateWinterSolsticeDay() function
 
 calculateEccentricity() function

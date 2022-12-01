@@ -17,6 +17,12 @@ def calculatePerihelionDay():
 	day_of_perhelion = 5.325 # 2020   
 	return day_of_perhelion    
 
+def calculateWinterSolsticeDay():
+	 # calendar day of the winter solstice (ranges from 21 to 23th)
+	## TODO
+	day_of_winter_solstice = 21 # 2020   
+	return day_of_winter_solstice    
+
 def calculateDistanceBetweenSolisticePerhelion():
 	# angle covered by the Earth between the begnning of Winter (21st December) and the arrival of the Earth at perihelion (2nd January)
 	## TODO
