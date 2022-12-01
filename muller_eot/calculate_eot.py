@@ -92,6 +92,9 @@ def plotEOT(planet_name=None,
 			orbital_period=None,
 			eot_y=[],
 			effect_title_str=None,
+			plot_title=None,
+			plot_x_title=None,
+			plot_y_title=None,
 			figsize_n=12,
 			figsize_dpi=100,
 			save_plot_name=None):
@@ -101,6 +104,9 @@ def plotEOT(planet_name=None,
 									orbital_period,
 									eot_y,
 									effect_title_str,
+									plot_title,
+									plot_x_title,
+									plot_y_title,
 									figsize_n,
 									figsize_dpi,
 									save_plot_name) # Verify argument behavior
@@ -117,9 +123,15 @@ def plotEOT(planet_name=None,
 	plt.scatter(orbit_days_x, eot_y)
 	plt.grid()
 
-	plt.title("{0}: Effect of {1} (Min = {2:.4f}, Max = {3:.4f})".format(planet_name, effect_title_str, min(eot_y), max(eot_y)))
-	plt.xlabel("Days in the Sidereal Year")
-	plt.ylabel("Time Difference (Minutes)")
+	if plot_title is None: plt.title("{0}: Effect of {1} (Min = {2:.4f}, Max = {3:.4f})".format(planet_name, effect_title_str, min(eot_y), max(eot_y)))
+	else: plt.title(plot_title)
+
+	if plot_x_title is None: plt.xlabel("Days in the Sidereal Year")
+	else: plt.xlabel(plot_x_title)
+
+	if plot_y_title is None: plt.ylabel("Time Difference (Minutes)")
+	else: plt.ylabel(plot_y_title)
+
 	plt.show()
 
 	if save_plot_name:

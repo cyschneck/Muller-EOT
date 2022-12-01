@@ -44,6 +44,9 @@ def errorHandlingPlotEOT(planet_name,
 						orbital_period,
 						eot_y,
 						effect_title_str,
+						plot_title,
+						plot_x_title,
+						plot_y_title,
 						figsize_n,
 						figsize_dpi,
 						save_plot_name):
@@ -85,8 +88,24 @@ def errorHandlingPlotEOT(planet_name,
 		exit()
 	if effect_title_str is None:
 		logger.critical("\nCRITICAL ERROR, [effect_title_str]: Must be a str, currently is 'None'")
+
+	# Ensure that plot_title is a string
+	if plot_title is not None and type(plot_title) != str:
+		logger.critical("\nCRITICAL ERROR, [plot_title]: Must be a str, current type = '{0}'".format(type(plot_title)))
 		exit()
-	logger.debug("effect_title_str = '{0}'".format(effect_title_str))
+	logger.debug("plot_title = '{0}'".format(plot_title))
+
+	# Ensure that plot_x_title is a string
+	if plot_x_title is not None and type(plot_x_title) != str:
+		logger.critical("\nCRITICAL ERROR, [plot_x_title]: Must be a str, current type = '{0}'".format(type(plot_x_title)))
+		exit()
+	logger.debug("plot_x_title = '{0}'".format(plot_x_title))
+
+	# Ensure that plot_y_title is a string
+	if plot_y_title is not None and type(plot_y_title) != str:
+		logger.critical("\nCRITICAL ERROR, [plot_y_title]: Must be a str, current type = '{0}'".format(type(plot_y_title)))
+		exit()
+	logger.debug("plot_y_title = '{0}'".format(plot_y_title))
 
 	# Ensure that all figsize_n is a float or int
 	if type(figsize_n) != int and type(figsize_n) != float:
