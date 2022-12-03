@@ -115,6 +115,7 @@ plotEOT(planet_name=None,
 		plot_title=None,
 		plot_x_title=None,
 		plot_y_title=None,
+		showPlot=True,
 		figsize_n=12,
 		figsize_dpi=100,
 		save_plot_name=None)
