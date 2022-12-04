@@ -140,13 +140,13 @@ import muller_eot
 
 # Get a list of time differences for each day
 eot_combined_dict = muller_eot.calculateDifferenceEOTMinutes(eccentricity=0.0167,
-															obliquity_deg=23.45,
-															orbit_period=365.25)
+							obliquity_deg=23.45,
+							orbit_period=365.25)
 
 # Plot differences in time as a function of days
 muller_eot.plotEOT(planet_name="Earth",
-					eot_dict=eot_combined_dict,
-					effect_title_str="Eccentricity (0.0167) and Obliquity (23.45)")
+		eot_dict=eot_combined_dict,
+		effect_title_str="Eccentricity (0.0167) and Obliquity (23.45)")
 ```
 
 ## Tests
