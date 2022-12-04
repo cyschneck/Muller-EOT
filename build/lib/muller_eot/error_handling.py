@@ -47,6 +47,7 @@ def errorHandlingPlotEOT(planet_name,
 						plot_x_title,
 						plot_y_title,
 						showPlot,
+						fig_plot_color,
 						figsize_n,
 						figsize_dpi,
 						save_plot_name):
@@ -103,6 +104,12 @@ def errorHandlingPlotEOT(planet_name,
 		logger.critical("\nCRITICAL ERROR, [showPlot]: Must be a bool, current type = '{0}'".format(type(showPlot)))
 		exit()
 	logger.debug("showPlot = '{0}'".format(showPlot))
+
+	# Ensure that the color given is a string (matplotlib has error checking for invalid color options)
+	if type(fig_plot_color) != str:
+		logger.critical("\nCRITICAL ERROR, [fig_plot_color]: Must be a string, current type = '{0}'".format(type(fig_plot_color)))
+		exit()
+	logger.debug("fig_plot_color = '{0}'".format(fig_plot_color))
 
 	# Ensure that all figsize_n is a float or int
 	if type(figsize_n) != int and type(figsize_n) != float:

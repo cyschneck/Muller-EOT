@@ -102,23 +102,23 @@ To calculate the difference in time for an individual day:
 Calculate the difference in time (in minutes) based on orbital period, eccentricity, and obliquity. Returns a list of differences in time for each day in the orbital year
 ```
 calculateDifferenceEOTMinutes(eccentricity=None,
-							obliquity_deg=None,
-							orbit_period=None)
+				obliquity_deg=None,
+				orbit_period=None)
 ```
 
 Plot the differences in time for the EOT as well as the individual effect of obliquity and eccentricity
 ```
 plotEOT(planet_name=None,
-		orbital_period=None,
-		eot_y=[],
-		effect_title_str=None,
-		plot_title=None,
-		plot_x_title=None,
-		plot_y_title=None,
-		showPlot=True,
-		figsize_n=12,
-		figsize_dpi=100,
-		save_plot_name=None)
+	eot_dict={},
+	effect_title_str=None,
+	plot_title=None,
+	plot_x_title=None,
+	plot_y_title=None,
+	showPlot=True,
+	fig_plot_color="C0",
+	figsize_n=12,
+	figsize_dpi=100,
+	save_plot_name=None)
 ```
 ## Dependencies
 Python 3.7
@@ -139,14 +139,13 @@ Get a list of differences in time for each day of the Earth's orbit and then plo
 import muller_eot
 
 # Get a list of time differences for each day
-eccentricity_y = muller_eot.calculateDifferenceEOTMinutes(eccentricity=0.0167,
-														obliquity_deg=23.45,
-														orbit_period=365.25)
+eot_combined_dict = muller_eot.calculateDifferenceEOTMinutes(eccentricity=0.0167,
+															obliquity_deg=23.45,
+															orbit_period=365.25)
 
 # Plot differences in time as a function of days
 muller_eot.plotEOT(planet_name="Earth",
-					orbital_period=365.25,
-					eot_y=eccentricity_y,
+					eot_dict=eot_combined_dict,
 					effect_title_str="Eccentricity (0.0167) and Obliquity (23.45)")
 ```
 

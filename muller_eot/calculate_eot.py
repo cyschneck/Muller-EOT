@@ -34,7 +34,6 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 								obliquity_deg,
 								orbit_period) # Verify argument behavior
 
-
 	distance_between_solistice_perhelion_deg = muller_eot.calculateDistanceBetweenSolisticePerhelion()
 	distance_between_solistice_perhelion_rad = np.deg2rad(distance_between_solistice_perhelion_deg)
 
@@ -97,6 +96,7 @@ def plotEOT(planet_name=None,
 			plot_x_title=None,
 			plot_y_title=None,
 			showPlot=True,
+			fig_plot_color="C0",
 			figsize_n=12,
 			figsize_dpi=100,
 			save_plot_name=None):
@@ -109,6 +109,7 @@ def plotEOT(planet_name=None,
 									plot_x_title,
 									plot_y_title,
 									showPlot,
+									fig_plot_color,
 									figsize_n,
 									figsize_dpi,
 									save_plot_name) # Verify argument behavior
@@ -125,7 +126,7 @@ def plotEOT(planet_name=None,
 
 	plt.xticks(date_range_split_into_months)
 	plt.xlim([min(date_range_split_into_months), max(date_range_split_into_months)])
-	plt.scatter(orbit_days_x, eot_y)
+	plt.scatter(orbit_days_x, eot_y, c=fig_plot_color)
 	plt.grid()
 
 	if plot_title is None: plt.title("{0}: Effect of {1} (Min = {2:.4f}, Max = {3:.4f})".format(planet_name, effect_title_str, min(eot_y), max(eot_y)))
