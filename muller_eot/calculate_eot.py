@@ -34,6 +34,7 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 								obliquity_deg,
 								orbit_period) # Verify argument behavior
 
+
 	distance_between_solistice_perhelion_deg = muller_eot.calculateDistanceBetweenSolisticePerhelion()
 	distance_between_solistice_perhelion_rad = np.deg2rad(distance_between_solistice_perhelion_deg)
 
@@ -42,7 +43,7 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 	minutes_conversion = (24 * 60) / (2 * math.pi)
 	perihelion_day = muller_eot.calculatePerihelionDay()
 
-	eot_mins = []
+	eot_dict = {} # { day : eot_min_difference }
 	orbit_days_x = np.arange(1, round(orbit_period), 1)
 
 	# Equation [45], page 11: expansion of sine function yields:
@@ -85,12 +86,12 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 		sin6_m_p = math.sin(6 * (mean_anomaly + distance_between_solistice_perhelion_rad)) # sin6(M + P)
 		line_five = tan6_1_3 * sin6_m_p
 
-		eot_mins.append(-( line_one + line_two + line_three + line_four + line_five)*minutes_conversion)
-	return eot_mins
+		eot_min_difference = -( line_one + line_two + line_three + line_four + line_five)*minutes_conversion
+		eot_dict[day] = eot_min_difference
+	return eot_dict
 
 def plotEOT(planet_name=None,
-			orbital_period=None,
-			eot_y=[],
+			eot_dict={},
 			effect_title_str=None,
 			plot_title=None,
 			plot_x_title=None,
@@ -102,8 +103,7 @@ def plotEOT(planet_name=None,
 	# Plot EOT Time Differences
 
 	muller_eot.errorHandlingPlotEOT(planet_name,
-									orbital_period,
-									eot_y,
+									eot_dict,
 									effect_title_str,
 									plot_title,
 									plot_x_title,
@@ -115,11 +115,14 @@ def plotEOT(planet_name=None,
 
 	fig = plt.figure(figsize=(figsize_n,figsize_n), dpi=figsize_dpi)
 
+	# X Axis = orbital days in year, Y Axis = minute differences for EOT
+	orbit_days_x = eot_dict.keys()
+	eot_y = eot_dict.values()
+
 	# X - Axis, split by months
-	orbit_days_x = np.arange(1, round(orbital_period), 1)
-	date_range_split_into_months = np.arange(0, round(orbital_period)+1, orbital_period/12) # split into 12 months (based on Earth)
+	date_range_split_into_months = np.arange(0, round(max(orbit_days_x))+1, max(orbit_days_x)/12) # split into 12 months (based on Earth)
 	for i, value in enumerate(date_range_split_into_months): date_range_split_into_months[i] = math.floor(value) # round all values
-	
+
 	plt.xticks(date_range_split_into_months)
 	plt.xlim([min(date_range_split_into_months), max(date_range_split_into_months)])
 	plt.scatter(orbit_days_x, eot_y)

@@ -41,8 +41,7 @@ def errorHandlingEOT(eccentricity,
 	logger.debug("orbit_period = '{0}'".format(orbit_period))
 
 def errorHandlingPlotEOT(planet_name,
-						orbital_period,
-						eot_y,
+						eot_dict,
 						effect_title_str,
 						plot_title,
 						plot_x_title,
@@ -61,27 +60,18 @@ def errorHandlingPlotEOT(planet_name,
 		exit()
 	logger.debug("planet_name = '{0}'".format(planet_name))
 
-	# Ensure that orbital_period is a float or int
-	if type(orbital_period) != int and type(orbital_period) != float:
-		logger.critical("\nCRITICAL ERROR, [orbital_period]: Must be a int or float, current type = '{0}'".format(type(orbital_period)))
+	# Ensure that all values in eot_dict for minute differences is a float or int
+	if type(eot_dict) is not dict:
+		logger.critical("\nCRITICAL ERROR, [eot_y]: Must be a dict, currently is '{0}'".format(type(eot_dict)))
 		exit()
-	if orbital_period is None:
-		logger.critical("\nCRITICAL ERROR, [orbital_period]: Must be a int or float, currently is 'None'")
-		exit()
-	logger.debug("orbital_period = '{0}'".format(orbital_period))
-
-	# Ensure that all y values for minute differences is a float or int
-	if type(eot_y) is not list:
-		logger.critical("\nCRITICAL ERROR, [eot_y]: Must be a list, currently is '{0}'".format(type(eot_y)))
-		exit()
-	for minute_dif in eot_y:
+	for minute_dif in eot_dict.values():
 		if type(minute_dif) != int and type(minute_dif) != float:
-			logger.critical("\nCRITICAL ERROR, [eot_y]: Must be a int or float, current type = '{0}'".format(type(minute_dif)))
+			logger.critical("\nCRITICAL ERROR, [eot_dict.values()]: Must be a int or float, current type = '{0}'".format(type(minute_dif)))
 			exit()
-	if len(eot_y) < 1:
-		logger.critical("\nCRITICAL ERROR, [eot_y]: Must have a length greater than zero")
+	if len(eot_dict.values()) < 1:
+		logger.critical("\nCRITICAL ERROR, [eot_dict.values()]: Must have a length greater than zero")
 		exit()
-	logger.debug("eot_y = '{0}'".format(eot_y))
+	logger.debug("eot_dict = '{0}'".format(eot_dict))
 
 	# Ensure that the effect title type is a string
 	if type(effect_title_str) != str:
