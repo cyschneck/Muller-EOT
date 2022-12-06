@@ -43,7 +43,7 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 	perihelion_day = muller_eot.calculatePerihelionDay()
 
 	eot_dict = {} # { day : eot_min_difference }
-	orbit_days_x = np.arange(1, round(orbit_period), 1)
+	orbit_days_x = np.arange(1, round(orbit_period)+1, 1)
 
 	# Equation [45], page 11: expansion of sine function yields:
 	for day in orbit_days_x:
