@@ -15,12 +15,7 @@ Combined Effect of the Eccentricity and Obliquity = Equation of Time
 
 ## Overview
 
-There are only four times of year where the length of the day is almost exactly 24 hours. 
-The rest of the year when the sun is at its highest point (solar noon), a clock can run 
-as much as 16 minutes ahead (12:16pm) or 13 minutes behind (11:47am). This discrepency is 
-the result of combined effect of a planet's obliquity (axial tilt) and its eccentricity (as
-well as other smaller gravitional forces like moons that are ignored here). Both of thsee 
-features form two sine curves that oscillate throughout the year. The combined sum
+The length of a day on Earth is only close to being 24 hours four times a year. For the rest of the year when the sun is at its highest point (solar noon), a clock can run as much as 16 minutes ahead (12:16pm) or 13 minutes behind (11:47am). This discrepency is the result of combined effect of a planet's obliquity (axial tilt) and its eccentricity (as well as other smaller gravitional forces like moons that are ignored here). Both of these features form two sine curves that oscillate throughout the year. The combined sum
 of these two curves form the Equation of Time, a non-uniform change in time to fix to a clock.
 A planet with an obliquity of 0° and perfectly circular orbit (zero eccentricity) would have
 no difference in the Expected Solar Noon and the Actual Solar Noon.
@@ -49,7 +44,7 @@ the time span ∆t from the beginning of winter to the passage through periehlio
   <img src="https://user-images.githubusercontent.com/22159116/203484692-b07bad99-3c6c-43e5-904f-04200f72c571.png" />
 </p>
 
-The effect of obliquity and eccentricity are the caused as a result of Kepler's law:
+The effect of eccentricity is the result of Kepler's Law where:
 
 "Two well-known features of our solar system are at the basis of the variations
  in the apparent motion of the sun: 1.) According to Kepler's second law, the angular
@@ -148,6 +143,7 @@ muller_eot.plotEOT(planet_name="Earth",
 		eot_dict=eot_combined_dict,
 		effect_title_str="Eccentricity (0.0167) and Obliquity (23.45)")
 ```
+![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot_testing.png)
 
 ## Tests
 
