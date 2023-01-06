@@ -18,7 +18,7 @@ setup(
 	url="https://github.com/cyschneck/Muller-EOT",
 	download_url="https://github.com/cyschneck/Muller-EOT/archive/refs/tags/v{0}.tar.gz".format(VERSION),
 	author="cyschneck (C. Y. Schneck)",
-	keywords=["astronomy", "python", "eot", "equation of time", "eccentricity", "obliquity"],
+	keywords=["astronomy", "python", "eot", "equation of time", "eccentricity", "obliquity", "orbital dynamics"],
 	license="MIT",
 	classifiers=[
 		"Development Status :: 4 - Beta",
@@ -28,6 +28,8 @@ setup(
 		"License :: OSI Approved :: MIT License",
 		"Programming Language :: Python",
 		"Programming Language :: Python :: 3.7",
+		"Programming Language :: Python :: 3.8",
+		"Programming Language :: Python :: 3.9",
 		"Intended Audience :: Education",
 		"Intended Audience :: Science/Research",
 		"Topic :: Scientific/Engineering :: Physics",

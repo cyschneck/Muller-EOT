@@ -5,7 +5,7 @@ import logging
 
 ## Logging set up for .INFO
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.CRITICAL)
 stream_handler = logging.StreamHandler()
 logger.addHandler(stream_handler)
 
