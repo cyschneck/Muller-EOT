@@ -2,7 +2,7 @@
 ![PyPi](https://img.shields.io/pypi/v/muller-eot)
 ![license](https://img.shields.io/github/license/cyschneck/Muller-EOT)
 
-A Python package for [M. Müller implementation of the "Equation of Time - Problem in Astronomy"](http://info.ifpan.edu.pl/firststep/aw-works/fsII/mul/mueller.pdf) to calculate EOT and the effect of eccentricity/obliquity
+A Python package for [M. Müller implementation of the "Equation of Time - Problem in Astronomy"](http://info.ifpan.edu.pl/firststep/aw-works/fsII/mul/mueller.pdf) to calculate the Equation of Time based on the individual effect of eccentricity and obliquity
 
 The combined effect of eccentricity and obliquity create the Equation of Time components.
 
@@ -15,7 +15,7 @@ Combined Effect of the Eccentricity and Obliquity = Equation of Time
 
 ## Overview
 
-The length of a day on Earth is only close to being 24 hours four times a year. For the rest of the year when the sun is at its highest point (solar noon), a clock can run as much as 16 minutes ahead (12:16pm) or 13 minutes behind (11:47am). This discrepency is the result of combined effect of a planet's obliquity (axial tilt) and its eccentricity (as well as other smaller gravitional forces like moons that are ignored here). Both of these features form two sine curves that oscillate throughout the year. The combined sum
+The length of a day on Earth is only close to being 24 hours four times a year. For the rest of the year when the sun is at its highest point (solar noon), a clock can run as much as 16 minutes ahead (12:16pm) or 13 minutes behind (11:47am). This discrepancy is the result of the combined effect of a planet's obliquity (axial tilt) and its eccentricity (as well as other smaller gravitational forces like moons that are ignored here). Both of these features form two sine curves that oscillate throughout the year. The combined sum
 of these two curves form the Equation of Time, a non-uniform change in time to fix to a clock.
 A planet with an obliquity of 0° and perfectly circular orbit (zero eccentricity) would have
 no difference in the Expected Solar Noon and the Actual Solar Noon.
@@ -54,7 +54,7 @@ The effect of eccentricity is the result of Kepler's Law where:
  which are relevant for the measure of time, since the daily movement of the sun is
  parallel to the equatorial plane" (Müller, 1995)
  
-**Effect on Angular Velocity:**
+**Effect on Angular Velocity (on Eccentricity):**
 
 As a result of Kepler's law, planets moving in an ellipitc orbit will have variable angular velocity 
 as a result of the second law where the area swept during a constant period of time is constant (=dA/dt)
@@ -94,13 +94,16 @@ To calculate the difference in time for an individual day:
 </p>
 
 ## Documentation
+**calculateDifferenceEOTMinutes**
 Calculate the difference in time (in minutes) based on orbital period, eccentricity, and obliquity. Returns a list of differences in time for each day in the orbital year
 ```
 calculateDifferenceEOTMinutes(eccentricity=None,
 				obliquity_deg=None,
 				orbit_period=None)
 ```
+Returns a dictionary for the difference in time for each day in a year {day: time difference}
 
+**plotEOT**
 Plot the differences in time for the EOT as well as the individual effect of obliquity and eccentricity
 ```
 plotEOT(planet_name=None,
@@ -116,7 +119,7 @@ plotEOT(planet_name=None,
 	save_plot_name=None)
 ```
 ## Dependencies
-Python 3.7
+Python 3.7+
 ```
 pip3 install -r requirements.txt
 ```
