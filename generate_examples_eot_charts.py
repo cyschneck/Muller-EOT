@@ -14,5 +14,23 @@ if __name__ == '__main__':
 	#				["Neptune", 0.0086, 29.56, 30.0611]]
 
 	earth_eot = muller_eot.EOT(eccentricity=0.0167, obliquity=23.45, orbit_period=365.25)
-	print(earth_eot.eotDayAndMinutes)
-	earth_eot.plotEOT()
+	title = "Earth: Effect of Eccentricity ({0}) and Obliquity ({1}) (Min={2:.4f}, Max={3:.4f})".format(0.0167, 
+																								23.45,
+																								min(earth_eot.eotDayAndMinutes.values()), 
+																								max(earth_eot.eotDayAndMinutes.values()))
+	earth_eot.plotEOT(plot_title=title,
+					save_plot_name="examples/earth_eot_testing.png")
+
+	earth_eot = muller_eot.EOT(eccentricity=0.0167, obliquity=0, orbit_period=365.25)
+	title = "Earth: Effect of Eccentricity ({0}) (Min={1:.4f}, Max={2:.4f})".format(0.0167, 
+																			min(earth_eot.eotDayAndMinutes.values()), 
+																			max(earth_eot.eotDayAndMinutes.values()))
+	earth_eot.plotEOT(plot_title=title,
+					save_plot_name="examples/earth_eccentricity_testing.png")
+
+	earth_eot = muller_eot.EOT(eccentricity=0, obliquity=23.45, orbit_period=365.25)
+	title = "Earth: Effect of Obliquity ({0}) (Min={1:.4f}, Max={2:.4f})".format(23.45, 
+																		min(earth_eot.eotDayAndMinutes.values()), 
+																		max(earth_eot.eotDayAndMinutes.values()))
+	earth_eot.plotEOT(plot_title=title,
+					save_plot_name="examples/earth_obliquity_testing.png")

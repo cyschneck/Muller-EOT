@@ -40,16 +40,15 @@ def errorHandlingEOT(eccentricity,
 		exit()
 	logger.debug("orbit_period = '{0}'".format(orbit_period))
 
-def errorHandlingPlotEOT(eot_dict,
-						effect_title,
-						plot_title,
-						plot_x_title,
-						plot_y_title,
-						showPlot,
-						fig_plot_color,
-						figsize_n,
-						figsize_dpi,
-						save_plot_name):
+def errorHandlingPlotEOT(eot_dict=None,
+						plot_title=None,
+						plot_x_title=None,
+						plot_y_title=None,
+						showPlot=None,
+						fig_plot_color=None,
+						figsize_n=None,
+						figsize_dpi=None,
+						save_plot_name=None):
 
 	# Ensure that all values in eot_dict for minute differences is a float or int
 	if type(eot_dict) is not dict:
@@ -63,12 +62,6 @@ def errorHandlingPlotEOT(eot_dict,
 		logger.critical("\nCRITICAL ERROR, [eot_dict.values()]: Must have a length greater than zero")
 		exit()
 	logger.debug("eot_dict = '{0}'".format(eot_dict))
-
-	# Ensure that the effect title type is a string
-	if effect_title is not None:
-		if type(effect_title) != str:
-			logger.critical("\nCRITICAL ERROR, [effect_title]: Must be a str, current type = '{0}'".format(type(effect_title)))
-			exit()
 
 	# Ensure that plot_title is a string
 	if plot_title is not None and type(plot_title) != str:

@@ -90,7 +90,6 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 	return eot_dict
 
 def plotEOT(eot_dict={},
-			effect_title=None,
 			plot_title=None,
 			plot_x_title=None,
 			plot_y_title=None,
@@ -101,16 +100,15 @@ def plotEOT(eot_dict={},
 			save_plot_name=None):
 	# Plot EOT Time Differences
 
-	muller_eot.errorHandlingPlotEOT(eot_dict,
-									effect_title,
-									plot_title,
-									plot_x_title,
-									plot_y_title,
-									showPlot,
-									fig_plot_color,
-									figsize_n,
-									figsize_dpi,
-									save_plot_name) # Verify argument behavior
+	muller_eot.errorHandlingPlotEOT(eot_dict=eot_dict,
+									plot_title=plot_title,
+									plot_x_title=plot_x_title,
+									plot_y_title=plot_y_title,
+									showPlot=showPlot,
+									fig_plot_color=fig_plot_color,
+									figsize_n=figsize_n,
+									figsize_dpi=figsize_dpi,
+									save_plot_name=save_plot_name) # Verify argument behavior
 
 	fig = plt.figure(figsize=(figsize_n,figsize_n), dpi=figsize_dpi)
 
