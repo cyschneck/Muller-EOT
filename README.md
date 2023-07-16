@@ -11,15 +11,8 @@ Get a list of differences in time for each day of the Earth's orbit and then plo
 ```
 import muller_eot
 
-# Get a list of time differences for each day
-eot_combined_dict = muller_eot.calculateDifferenceEOTMinutes(eccentricity=0.0167,
-							obliquity_deg=23.45,
-							orbit_period=365.25)
-
-# Plot differences in time as a function of days
-muller_eot.plotEOT(planet_name="Earth",
-		eot_dict=eot_combined_dict,
-		effect_title_str="Eccentricity (0.0167) and Obliquity (23.45)")
+earth_eot = muller_eot.EOT(eccentricity=0.0167, obliquity=23.45, orbit_period=365.25)
+earth_eot.plotEOT(effect_title="Eccentricity (0.0167) and Obliquity (23.45)")
 ```
 ![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot_testing.png)
 
@@ -34,7 +27,7 @@ PyPi pip install at [pypi.org/project/muller-eot/](https://pypi.org/project/mull
 ```
 pip install muller-eot
 ```
-## Overview
+## Functions
 The combined effect of eccentricity and obliquity create the Equation of Time components.
 
 | Effect of Eccentricity | Effect of Obliquity |
@@ -44,29 +37,36 @@ The combined effect of eccentricity and obliquity create the Equation of Time co
 Combined Effect of the Eccentricity and Obliquity = Equation of Time
 ![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot_testing.png)
 
-**calculateDifferenceEOTMinutes**
-Calculate the difference in time (in minutes) based on orbital period, eccentricity, and obliquity. Returns a list of differences in time for each day in the orbital year
+**EOT Object**
+```python
+import muller_eot
+muller_eot.EOT(eccentricity=None,
+			obliquity=None,
+			orbit_period=None)
 ```
-calculateDifferenceEOTMinutes(eccentricity=None,
-				obliquity_deg=None,
-				orbit_period=None)
-```
+
+### Class Attributes and Functions
+
+**eotDayAndMinutes**
 Returns a dictionary for the difference in time for each day in a year {day: time difference}
+```python
+EOT.eotDayAndMinutes
+```
 
 **plotEOT**
 Plot the differences in time for the EOT as well as the individual effect of obliquity and eccentricity
-```
-plotEOT(planet_name=None,
-	eot_dict={},
-	effect_title_str=None,
-	plot_title=None,
-	plot_x_title=None,
-	plot_y_title=None,
-	showPlot=True,
-	fig_plot_color="C0",
-	figsize_n=12,
-	figsize_dpi=100,
-	save_plot_name=None)
+```python
+EOT.plotEOT(planet_name=None,
+		eot_dict={},
+		effect_title_str=None,
+		plot_title=None,
+		plot_x_title=None,
+		plot_y_title=None,
+		showPlot=True,
+		fig_plot_color="C0",
+		figsize_n=12,
+		figsize_dpi=100,
+		save_plot_name=None)
 ```
 
 ## Background

@@ -1,3 +1,5 @@
+from .eotClass import EOT
+
 from .helper_function import calculateOrbitalPeriod
 from .helper_function import calculateEccentricity
 from .helper_function import calculatePerihelionDay

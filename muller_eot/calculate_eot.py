@@ -26,18 +26,18 @@ import muller_eot
 # ε = obliquity of Earth = 23.45◦
 
 def calculateDifferenceEOTMinutes(eccentricity=None,
-								obliquity_deg=None,
+								obliquity=None,
 								orbit_period=None):
 	# Calculate the time difference (in minutes) for the Equation of Time
 
 	muller_eot.errorHandlingEOT(eccentricity,
-								obliquity_deg,
+								obliquity,
 								orbit_period) # Verify argument behavior
 
 	distance_between_solistice_perhelion_deg = muller_eot.calculateDistanceBetweenSolisticePerhelion()
 	distance_between_solistice_perhelion_rad = np.deg2rad(distance_between_solistice_perhelion_deg)
 
-	obliquity_rad = np.deg2rad(obliquity_deg)
+	obliquity_rad = np.deg2rad(obliquity)
 
 	minutes_conversion = (24 * 60) / (2 * math.pi)
 	perihelion_day = muller_eot.calculatePerihelionDay()
@@ -91,7 +91,7 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 
 def plotEOT(planet_name=None,
 			eot_dict={},
-			effect_title_str=None,
+			effect_title=None,
 			plot_title=None,
 			plot_x_title=None,
 			plot_y_title=None,
@@ -104,7 +104,7 @@ def plotEOT(planet_name=None,
 
 	muller_eot.errorHandlingPlotEOT(planet_name,
 									eot_dict,
-									effect_title_str,
+									effect_title,
 									plot_title,
 									plot_x_title,
 									plot_y_title,
@@ -129,7 +129,7 @@ def plotEOT(planet_name=None,
 	plt.scatter(orbit_days_x, eot_y, c=fig_plot_color)
 	plt.grid()
 
-	if plot_title is None: plt.title("{0}: Effect of {1} (Min = {2:.4f}, Max = {3:.4f})".format(planet_name, effect_title_str, min(eot_y), max(eot_y)))
+	if plot_title is None: plt.title("{0}: Effect of {1} (Min = {2:.4f}, Max = {3:.4f})".format(planet_name, effect_title, min(eot_y), max(eot_y)))
 	else: plt.title(plot_title)
 
 	if plot_x_title is None: plt.xlabel("Days in the Sidereal Year")

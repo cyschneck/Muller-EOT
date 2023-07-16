@@ -42,7 +42,7 @@ def errorHandlingEOT(eccentricity,
 
 def errorHandlingPlotEOT(planet_name,
 						eot_dict,
-						effect_title_str,
+						effect_title,
 						plot_title,
 						plot_x_title,
 						plot_y_title,
@@ -75,11 +75,11 @@ def errorHandlingPlotEOT(planet_name,
 	logger.debug("eot_dict = '{0}'".format(eot_dict))
 
 	# Ensure that the effect title type is a string
-	if type(effect_title_str) != str:
-		logger.critical("\nCRITICAL ERROR, [effect_title_str]: Must be a str, current type = '{0}'".format(type(effect_title_str)))
+	if type(effect_title) != str:
+		logger.critical("\nCRITICAL ERROR, [effect_title]: Must be a str, current type = '{0}'".format(type(effect_title)))
 		exit()
-	if effect_title_str is None:
-		logger.critical("\nCRITICAL ERROR, [effect_title_str]: Must be a str, currently is 'None'")
+	if effect_title is None:
+		logger.critical("\nCRITICAL ERROR, [effect_title]: Must be a str, currently is 'None'")
 
 	# Ensure that plot_title is a string
 	if plot_title is not None and type(plot_title) != str:
