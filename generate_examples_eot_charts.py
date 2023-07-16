@@ -13,6 +13,10 @@ if __name__ == '__main__':
 	#				["Uranus", 0.0472, 97.86, 19.1914],
 	#				["Neptune", 0.0086, 29.56, 30.0611]]
 
+
+	earth_eot = muller_eot.EOT(eccentricity=0.0167, obliquity=23.45, orbit_period=365.25)
+	earth_eot.plotEOT(save_plot_name="examples/earth_quickstart.png")
+
 	earth_eot = muller_eot.EOT(eccentricity=0.0167, obliquity=23.45, orbit_period=365.25)
 	title = "Earth: Effect of Eccentricity ({0}) and Obliquity ({1}) (Min={2:.4f}, Max={3:.4f})".format(0.0167, 
 																								23.45,

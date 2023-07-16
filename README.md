@@ -14,7 +14,7 @@ import muller_eot
 earth_eot = muller_eot.EOT(eccentricity=0.0167, obliquity=23.45, orbit_period=365.25)
 earth_eot.plotEOT()
 ```
-![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot_testing.png)
+![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_quickstart.png)
 
 ## Dependencies
 Python 3.7+
