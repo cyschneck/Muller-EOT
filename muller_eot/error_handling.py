@@ -40,8 +40,7 @@ def errorHandlingEOT(eccentricity,
 		exit()
 	logger.debug("orbit_period = '{0}'".format(orbit_period))
 
-def errorHandlingPlotEOT(planet_name,
-						eot_dict,
+def errorHandlingPlotEOT(eot_dict,
 						effect_title,
 						plot_title,
 						plot_x_title,
@@ -51,15 +50,6 @@ def errorHandlingPlotEOT(planet_name,
 						figsize_n,
 						figsize_dpi,
 						save_plot_name):
-
-	# Ensure that planet_name is a string
-	if type(planet_name) != str:
-		logger.critical("\nCRITICAL ERROR, [planet_name]: Must be a str, current type = '{0}'".format(type(planet_name)))
-		exit()
-	if planet_name is None:
-		logger.critical("\nCRITICAL ERROR, [planet_name]: Must be a int or float, currently is 'None'")
-		exit()
-	logger.debug("planet_name = '{0}'".format(planet_name))
 
 	# Ensure that all values in eot_dict for minute differences is a float or int
 	if type(eot_dict) is not dict:
@@ -75,11 +65,10 @@ def errorHandlingPlotEOT(planet_name,
 	logger.debug("eot_dict = '{0}'".format(eot_dict))
 
 	# Ensure that the effect title type is a string
-	if type(effect_title) != str:
-		logger.critical("\nCRITICAL ERROR, [effect_title]: Must be a str, current type = '{0}'".format(type(effect_title)))
-		exit()
-	if effect_title is None:
-		logger.critical("\nCRITICAL ERROR, [effect_title]: Must be a str, currently is 'None'")
+	if effect_title is not None:
+		if type(effect_title) != str:
+			logger.critical("\nCRITICAL ERROR, [effect_title]: Must be a str, current type = '{0}'".format(type(effect_title)))
+			exit()
 
 	# Ensure that plot_title is a string
 	if plot_title is not None and type(plot_title) != str:

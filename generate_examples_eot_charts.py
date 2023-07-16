@@ -15,4 +15,4 @@ if __name__ == '__main__':
 
 	earth_eot = muller_eot.EOT(eccentricity=0.0167, obliquity=23.45, orbit_period=365.25)
 	print(earth_eot.eotDayAndMinutes)
-	earth_eot.plotEOT(effect_title="Eccentricity (0.0167) and Obliquity (23.45)")
+	earth_eot.plotEOT()

@@ -13,7 +13,6 @@ class EOT:
 															orbit_period=self.orbit_period)
 
 	def plotEOT(self,
-				planet_name="Earth",
 				effect_title=None,
 				plot_title=None,
 				plot_x_title=None,
@@ -23,8 +22,7 @@ class EOT:
 				figsize_n=12,
 				figsize_dpi=100):
 		# Plot the EOT time difference generated from calculateDifferenceEOTMinutes()
-		muller_eot.plotEOT(planet_name=planet_name,
-							eot_dict=self.eotDayAndMinutes,
+		muller_eot.plotEOT(eot_dict=self.eotDayAndMinutes,
 							effect_title=effect_title,
 							plot_title=plot_title,
 							plot_x_title=plot_x_title,

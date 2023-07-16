@@ -89,8 +89,7 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 		eot_dict[day] = eot_min_difference
 	return eot_dict
 
-def plotEOT(planet_name=None,
-			eot_dict={},
+def plotEOT(eot_dict={},
 			effect_title=None,
 			plot_title=None,
 			plot_x_title=None,
@@ -102,8 +101,7 @@ def plotEOT(planet_name=None,
 			save_plot_name=None):
 	# Plot EOT Time Differences
 
-	muller_eot.errorHandlingPlotEOT(planet_name,
-									eot_dict,
+	muller_eot.errorHandlingPlotEOT(eot_dict,
 									effect_title,
 									plot_title,
 									plot_x_title,
@@ -129,8 +127,10 @@ def plotEOT(planet_name=None,
 	plt.scatter(orbit_days_x, eot_y, c=fig_plot_color)
 	plt.grid()
 
-	if plot_title is None: plt.title("{0}: Effect of {1} (Min = {2:.4f}, Max = {3:.4f})".format(planet_name, effect_title, min(eot_y), max(eot_y)))
-	else: plt.title(plot_title)
+	if plot_title is None: 
+		plt.title("EOT Minute Difference (Min = {0:.4f}, Max = {1:.4f})".format(min(eot_y), max(eot_y)))
+	else: 
+		plt.title(plot_title)
 
 	if plot_x_title is None: plt.xlabel("Days in the Sidereal Year")
 	else: plt.xlabel(plot_x_title)
