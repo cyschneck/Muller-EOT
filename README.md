@@ -4,6 +4,37 @@
 
 A Python package for [M. Müller implementation of the "Equation of Time - Problem in Astronomy"](http://info.ifpan.edu.pl/firststep/aw-works/fsII/mul/mueller.pdf) to calculate the Equation of Time based on the individual effect of eccentricity and obliquity
 
+## Quickstart: muller-eot
+
+Get a list of differences in time for each day of the Earth's orbit and then plot it as a function of days in orbit
+
+```
+import muller_eot
+
+# Get a list of time differences for each day
+eot_combined_dict = muller_eot.calculateDifferenceEOTMinutes(eccentricity=0.0167,
+							obliquity_deg=23.45,
+							orbit_period=365.25)
+
+# Plot differences in time as a function of days
+muller_eot.plotEOT(planet_name="Earth",
+		eot_dict=eot_combined_dict,
+		effect_title_str="Eccentricity (0.0167) and Obliquity (23.45)")
+```
+![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot_testing.png)
+
+## Dependencies
+Python 3.7+
+```
+pip3 install -r requirements.txt
+```
+## Install
+PyPi pip install at [pypi.org/project/muller-eot/](https://pypi.org/project/muller-eot/)
+
+```
+pip install muller-eot
+```
+## Overview
 The combined effect of eccentricity and obliquity create the Equation of Time components.
 
 | Effect of Eccentricity | Effect of Obliquity |
@@ -13,7 +44,32 @@ The combined effect of eccentricity and obliquity create the Equation of Time co
 Combined Effect of the Eccentricity and Obliquity = Equation of Time
 ![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot_testing.png)
 
-## Overview
+**calculateDifferenceEOTMinutes**
+Calculate the difference in time (in minutes) based on orbital period, eccentricity, and obliquity. Returns a list of differences in time for each day in the orbital year
+```
+calculateDifferenceEOTMinutes(eccentricity=None,
+				obliquity_deg=None,
+				orbit_period=None)
+```
+Returns a dictionary for the difference in time for each day in a year {day: time difference}
+
+**plotEOT**
+Plot the differences in time for the EOT as well as the individual effect of obliquity and eccentricity
+```
+plotEOT(planet_name=None,
+	eot_dict={},
+	effect_title_str=None,
+	plot_title=None,
+	plot_x_title=None,
+	plot_y_title=None,
+	showPlot=True,
+	fig_plot_color="C0",
+	figsize_n=12,
+	figsize_dpi=100,
+	save_plot_name=None)
+```
+
+## Background
 
 The length of a day on Earth is only close to being 24 hours four times a year. For the rest of the year when the sun is at its highest point (solar noon), a clock can run as much as 16 minutes ahead (12:16pm) or 13 minutes behind (11:47am). This discrepancy is the result of the combined effect of a planet's obliquity (axial tilt) and its eccentricity (as well as other smaller gravitational forces like moons that are ignored here). Both of these features form two sine curves that oscillate throughout the year. The combined sum
 of these two curves form the Equation of Time, a non-uniform change in time to fix to a clock.
@@ -93,73 +149,10 @@ To calculate the difference in time for an individual day:
   <img src="https://user-images.githubusercontent.com/22159116/203877814-c2d710f3-0681-4f72-8607-0f96e2a33256.png" />
 </p>
 
-## Documentation
-**calculateDifferenceEOTMinutes**
-Calculate the difference in time (in minutes) based on orbital period, eccentricity, and obliquity. Returns a list of differences in time for each day in the orbital year
-```
-calculateDifferenceEOTMinutes(eccentricity=None,
-				obliquity_deg=None,
-				orbit_period=None)
-```
-Returns a dictionary for the difference in time for each day in a year {day: time difference}
-
-**plotEOT**
-Plot the differences in time for the EOT as well as the individual effect of obliquity and eccentricity
-```
-plotEOT(planet_name=None,
-	eot_dict={},
-	effect_title_str=None,
-	plot_title=None,
-	plot_x_title=None,
-	plot_y_title=None,
-	showPlot=True,
-	fig_plot_color="C0",
-	figsize_n=12,
-	figsize_dpi=100,
-	save_plot_name=None)
-```
-## Dependencies
-Python 3.7+
-```
-pip3 install -r requirements.txt
-```
-## Install
-PyPi pip install at [pypi.org/project/muller-eot/](https://pypi.org/project/muller-eot/)
-
-```
-pip install muller-eot
-```
-## Examples
-
-Get a list of differences in time for each day of the Earth's orbit and then plot it as a function of days in orbit
-
-```
-import muller_eot
-
-# Get a list of time differences for each day
-eot_combined_dict = muller_eot.calculateDifferenceEOTMinutes(eccentricity=0.0167,
-							obliquity_deg=23.45,
-							orbit_period=365.25)
-
-# Plot differences in time as a function of days
-muller_eot.plotEOT(planet_name="Earth",
-		eot_dict=eot_combined_dict,
-		effect_title_str="Eccentricity (0.0167) and Obliquity (23.45)")
-```
-![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot_testing.png)
-
-## Tests
-
-TODO
-
-## TODO:
-
-calculateOrbitalPeriod(semimajor_axis) function
-
-calculateDistanceBetweenSolisticePerhelion() function
-
-calculatePerihelionDay() function
-
-calculateWinterSolsticeDay() function
-
-calculateEccentricity() function
+### TODO:
+- Pytests
+- calculateOrbitalPeriod(semimajor_axis)
+- calculateDistanceBetweenSolisticePerhelion()
+- calculatePerihelionDay()
+- calculateWinterSolsticeDay()
+- calculateEccentricity() function
