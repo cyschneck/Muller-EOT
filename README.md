@@ -52,10 +52,10 @@ muller_eot.EOT(eccentricity=None,
 - **[REQUIRED]** orbit_period (float/int): days in a solar year
 
 
-### Class Attributes and Functions
+### EOT Class Attributes and Functions
 
 **eotDayAndMinutes**
-Returns a dictionary for the difference in time for each day in a year {day: time difference}
+Returns a dictionary for the difference in time for each day in a year {number_day: time difference}
 ```python
 EOT.eotDayAndMinutes
 ```
@@ -67,19 +67,19 @@ EOT.plotEOT(plot_title=None,
 		plot_x_title=None,
 		plot_y_title=None,
 		show_plot=True,
-		fig_plot_color="C0",
+		fig_plot_color="cornflowerblue",
 		figsize_n=12,
 		figsize_dpi=100,
 		save_plot_name=None)
 ```
-- *[OPTIONAL]* plot_title (string):
-- *[OPTIONAL]* plot_x_title (string):
-- *[OPTIONAL]* plot_y_title (string):
-- *[OPTIONAL]* show_plot (boolean):
-- *[OPTIONAL]* fig_plot_color (string):
-- *[OPTIONAL]* figsize_n (int/float):
-- *[OPTIONAL]* figsize_dpi (int/lfoat):
-- *[OPTIONAL]* save_plot_name (boolean):
+- *[OPTIONAL]* plot_title (string): Title of plot, defaults to `EOT Minute Difference (Min = <negative minutes>, Max = <postive minutes>)`
+- *[OPTIONAL]* plot_x_title (string): X-axis title, defaults to `Days in the Sidereal Year`
+- *[OPTIONAL]* plot_y_title (string): Y-axis title, defaults to `Time Difference (Minutes)`
+- *[OPTIONAL]* show_plot (boolean): Show plot (triggers plt.show()), useful when generating multiple plots at once in the background, defaults to True
+- *[OPTIONAL]* fig_plot_color (string): Scatter plot color, defaults to `cornflowerblue` blue
+- *[OPTIONAL]* figsize_n (int/float): Figure size nxn, defaults to 12x12
+- *[OPTIONAL]* figsize_dpi (int/lfoat): Figure DPI, defaults to 100
+- *[OPTIONAL]* save_plot_name (boolean): Save plot as output, defaults to None (does not save)
 
 ## Background
 
@@ -167,4 +167,4 @@ Equation of Time is the combination of the effect of eccentricity and obliquity
 - calculateDistanceBetweenSolisticePerhelion()
 - calculatePerihelionDay()
 - calculateWinterSolsticeDay()
-- calculateEccentricity() function
+- calculateEccentricity()

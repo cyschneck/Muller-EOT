@@ -21,7 +21,7 @@ class EOT:
 				plot_x_title=None,
 				plot_y_title=None,
 				show_plot=True,
-				fig_plot_color="C0",
+				fig_plot_color="cornflowerblue",
 				figsize_n=12,
 				figsize_dpi=100,
 				save_plot_name=None):

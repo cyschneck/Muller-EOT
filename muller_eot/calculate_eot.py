@@ -89,17 +89,16 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 		eot_dict[day] = eot_min_difference
 	return eot_dict
 
-def plotEOT(eot_dict={},
+def plotEOT(eot_dict=None,
 			plot_title=None,
 			plot_x_title=None,
 			plot_y_title=None,
-			show_plot=True,
-			fig_plot_color="C0",
-			figsize_n=12,
-			figsize_dpi=100,
+			show_plot=None,
+			fig_plot_color=None,
+			figsize_n=None,
+			figsize_dpi=None,
 			save_plot_name=None):
 	# Plot EOT Time Differences
-
 	muller_eot.errorHandlingPlotEOT(eot_dict=eot_dict,
 									plot_title=plot_title,
 									plot_x_title=plot_x_title,
