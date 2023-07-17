@@ -32,10 +32,10 @@ The combined effect of eccentricity and obliquity create the Equation of Time co
 
 | Effect of Eccentricity | Effect of Obliquity |
 | ------------- | ------------- |
-| ![effect_eccentricity](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eccentricity_testing.png) | ![effect_obliquity](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_obliquity_testing.png) |
+| ![effect_eccentricity](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eccentricity.png) | ![effect_obliquity](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_obliquity.png) |
 
 Combined Effect of the Eccentricity and Obliquity = Equation of Time
-![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot_testing.png)
+![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot.png)
 
 **EOT Object**
 ```python

@@ -30,9 +30,9 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 								orbit_period=None):
 	# Calculate the time difference (in minutes) for the Equation of Time
 
-	muller_eot.errorHandlingEOT(eccentricity,
-								obliquity,
-								orbit_period) # Verify argument behavior
+	muller_eot.errorHandlingEOT(eccentricity=eccentricity,
+								obliquity=obliquity,
+								orbit_period=orbit_period)
 
 	distance_between_solistice_perhelion_deg = muller_eot.calculateDistanceBetweenSolisticePerhelion()
 	distance_between_solistice_perhelion_rad = np.deg2rad(distance_between_solistice_perhelion_deg)

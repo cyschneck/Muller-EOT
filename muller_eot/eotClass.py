@@ -2,7 +2,11 @@
 import muller_eot 
 
 class EOT:
-	def __init__(self, eccentricity, obliquity, orbit_period):
+	def __init__(self,
+				eccentricity=None,
+				obliquity=None,
+				orbit_period=None):
+		# EOT Required
 		self.eccentricity = eccentricity
 		self.obliquity = obliquity
 		self.orbit_period = orbit_period
