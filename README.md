@@ -16,17 +16,19 @@ earth_eot.plotEOT()
 ```
 ![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_quickstart.png)
 
-## Dependencies
-Python 3.7+
-```
-pip3 install -r requirements.txt
-```
 ## Install
 PyPi pip install at [pypi.org/project/muller-eot/](https://pypi.org/project/muller-eot/)
 
 ```
 pip install muller-eot
 ```
+## Dependencies
+Python 3.7+
+```
+pip install -r requirements.txt
+```
+Requirements will also be downloaded as part of the pip download
+
 ## Functions
 The combined effect of eccentricity and obliquity create the Equation of Time components.
 
@@ -37,13 +39,18 @@ The combined effect of eccentricity and obliquity create the Equation of Time co
 Combined Effect of the Eccentricity and Obliquity = Equation of Time
 ![effect_eot](https://raw.githubusercontent.com/cyschneck/Muller-EOT/main/examples/earth_eot.png)
 
-**EOT Object**
+### EOT Object
+All Equation of Time calculations are done as a part of the EOT class object. First, create an EOT object for a specific eccentricity, obliquity, and orbit period (in days)
 ```python
 import muller_eot
 muller_eot.EOT(eccentricity=None,
-			obliquity=None,
-			orbit_period=None)
+		obliquity=None,
+		orbit_period=None)
 ```
+- **[REQUIRED]** eccentricity (float/int): eccentricity of the planet's orbit
+- **[REQUIRED]** obliquity (float/int): obliquity/axial tilt of the planet
+- **[REQUIRED]** orbit_period (float/int): days in a solar year
+
 
 ### Class Attributes and Functions
 
@@ -56,18 +63,23 @@ EOT.eotDayAndMinutes
 **plotEOT**
 Plot the differences in time for the EOT as well as the individual effect of obliquity and eccentricity
 ```python
-EOT.plotEOT(planet_name=None,
-		eot_dict={},
-		effect_title_str=None,
-		plot_title=None,
+EOT.plotEOT(plot_title=None,
 		plot_x_title=None,
 		plot_y_title=None,
-		showPlot=True,
+		show_plot=True,
 		fig_plot_color="C0",
 		figsize_n=12,
 		figsize_dpi=100,
 		save_plot_name=None)
 ```
+- *[OPTIONAL]* plot_title (string):
+- *[OPTIONAL]* plot_x_title (string):
+- *[OPTIONAL]* plot_y_title (string):
+- *[OPTIONAL]* show_plot (boolean):
+- *[OPTIONAL]* fig_plot_color (string):
+- *[OPTIONAL]* figsize_n (int/float):
+- *[OPTIONAL]* figsize_dpi (int/lfoat):
+- *[OPTIONAL]* save_plot_name (boolean):
 
 ## Background
 
@@ -75,6 +87,11 @@ The length of a day on Earth is only close to being 24 hours four times a year. 
 of these two curves form the Equation of Time, a non-uniform change in time to fix to a clock.
 A planet with an obliquity of 0° and perfectly circular orbit (zero eccentricity) would have
 no difference in the Expected Solar Noon and the Actual Solar Noon.
+
+To calculate the difference in time for an individual day:
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/22159116/203877814-c2d710f3-0681-4f72-8607-0f96e2a33256.png" />
+</p>
 
 Equation of Time = (Apparent Solar Time) - (Mean Solar Time) 
 
@@ -142,11 +159,6 @@ compensate each other in winter whereas the negative value in summer begins to d
 Equation of Time is the combination of the effect of eccentricity and obliquity
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22159116/203484851-c96be35a-2d4a-44df-a2ee-a9d88974aa9e.png" />
-</p>
-
-To calculate the difference in time for an individual day:
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/22159116/203877814-c2d710f3-0681-4f72-8607-0f96e2a33256.png" />
 </p>
 
 ### TODO:

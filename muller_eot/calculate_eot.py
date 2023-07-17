@@ -93,7 +93,7 @@ def plotEOT(eot_dict={},
 			plot_title=None,
 			plot_x_title=None,
 			plot_y_title=None,
-			showPlot=True,
+			show_plot=True,
 			fig_plot_color="C0",
 			figsize_n=12,
 			figsize_dpi=100,
@@ -104,7 +104,7 @@ def plotEOT(eot_dict={},
 									plot_title=plot_title,
 									plot_x_title=plot_x_title,
 									plot_y_title=plot_y_title,
-									showPlot=showPlot,
+									show_plot=show_plot,
 									fig_plot_color=fig_plot_color,
 									figsize_n=figsize_n,
 									figsize_dpi=figsize_dpi,
@@ -136,7 +136,7 @@ def plotEOT(eot_dict={},
 	if plot_y_title is None: plt.ylabel("Time Difference (Minutes)")
 	else: plt.ylabel(plot_y_title)
 
-	if showPlot:
+	if show_plot:
 		plt.show()
 
 	if save_plot_name:

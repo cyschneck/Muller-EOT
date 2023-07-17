@@ -42,23 +42,11 @@ def errorHandlingPlotEOT(eot_dict=None,
 						plot_title=None,
 						plot_x_title=None,
 						plot_y_title=None,
-						showPlot=None,
+						show_plot=None,
 						fig_plot_color=None,
 						figsize_n=None,
 						figsize_dpi=None,
 						save_plot_name=None):
-
-	# Ensure that all values in eot_dict for minute differences is a float or int
-	if type(eot_dict) is not dict:
-		logger.critical("\nCRITICAL ERROR, [eot_y]: Must be a dict, currently is '{0}'".format(type(eot_dict)))
-		exit()
-	for minute_dif in eot_dict.values():
-		if type(minute_dif) != int and type(minute_dif) != float:
-			logger.critical("\nCRITICAL ERROR, [eot_dict.values()]: Must be a int or float, current type = '{0}'".format(type(minute_dif)))
-			exit()
-	if len(eot_dict.values()) < 1:
-		logger.critical("\nCRITICAL ERROR, [eot_dict.values()]: Must have a length greater than zero")
-		exit()
 
 	# Ensure that plot_title is a string
 	if plot_title is not None and type(plot_title) != str:
@@ -75,9 +63,9 @@ def errorHandlingPlotEOT(eot_dict=None,
 		logger.critical("\nCRITICAL ERROR, [plot_y_title]: Must be a str, current type = '{0}'".format(type(plot_y_title)))
 		exit()
 
-	# Ensure that all showPlot is a boolean ["True", "False"]
-	if type(showPlot) != bool:
-		logger.critical("\nCRITICAL ERROR, [showPlot]: Must be a bool, current type = '{0}'".format(type(showPlot)))
+	# Ensure that all show_plot is a boolean ["True", "False"]
+	if type(show_plot) != bool:
+		logger.critical("\nCRITICAL ERROR, [show_plot]: Must be a bool, current type = '{0}'".format(type(show_plot)))
 		exit()
 
 	# Ensure that the color given is a string (matplotlib has error checking for invalid color options)
