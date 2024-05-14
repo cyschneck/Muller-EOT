@@ -40,8 +40,8 @@ setup(
 											'muller_eot.*']),
 	include_package_data=True,
 	install_requires=[
-		"matplotlib>=3.1.0",
-		"numpy>=1.21.6",
+		"matplotlib",
+		"numpy",
 	],
 	python_requires='>=3.7'
 )
