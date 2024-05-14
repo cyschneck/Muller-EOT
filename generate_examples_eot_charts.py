@@ -1,8 +1,10 @@
 # Test generate_star_chart functions
-# python3 generate_examples_eot_charts.py
+# python generate_examples_eot_charts.py
 import muller_eot
+import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
+	# plt.style.use('dark_background')
 	# Planet Name, Eccentricity, Obliquity, Semimajor Axis (AU)
 	#planet_lst = [["Mercury", 0.2056, 0.1, 0.3871],
 	#				["Venus", 0.0068, 87.3, 0.7233], 

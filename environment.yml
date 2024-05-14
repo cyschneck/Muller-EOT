@@ -1,0 +1,9 @@
+name: muller_eot
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10,<3.12
+  - numpy
+  - pip
+  - pip:
+    - matplotlib # avoid warning "QApplication: invalid style override passed, ignoring it."

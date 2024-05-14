@@ -1,6 +1,7 @@
 # Muller-EOT
 ![PyPi](https://img.shields.io/pypi/v/muller-eot)
 ![license](https://img.shields.io/github/license/cyschneck/Muller-EOT)
+![PyPi-Versions](https://img.shields.io/pypi/pyversions/Muller-EOT)
 
 A Python package for [M. Müller implementation of the "Equation of Time - Problem in Astronomy"](http://info.ifpan.edu.pl/firststep/aw-works/fsII/mul/mueller.pdf) to calculate the Equation of Time based on the individual effect of eccentricity and obliquity
 
@@ -168,3 +169,19 @@ Equation of Time is the combination of the effect of eccentricity and obliquity
 - calculatePerihelionDay()
 - calculateWinterSolsticeDay()
 - calculateEccentricity()
+
+## Development Environment
+
+To run or test against `muller_eot` github repo/fork, a development environment can be created via conda/miniconda
+
+First, [install Miniconda](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html)
+
+Then, using the existing `environment.yml`, a new conda environment can be create to run/test scripts against
+
+```
+conda env create --file environment.yml
+```
+Once the environment has been built, activate the environment:
+```
+conda activate muller_eot
+```
