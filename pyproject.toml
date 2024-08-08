@@ -1,0 +1,53 @@
+[project]
+name = "muller-eot"
+version = "v1.4.2""
+authors = [
+  { name="Cora Schneck", email="cyschneck@gmail.com" }
+  ]
+
+description = "A Python package for M. Müller implementation of the 'Equation of Time - Problem in Astronomy' to calculate EOT and the effect of eccentricity/obliquity"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+
+dependencies = [
+    "matplotlib",
+    "numpy"
+]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Topic :: Scientific/Engineering :: Astronomy"
+]
+
+keywords = [
+        "astronomy", "python", "eot", "equation of time", "eccentricity", "obliquity", "orbital dynamics"
+    ]
+
+[project.urls]
+Repository = "https://github.com/cyschneck/Muller-EOT"
+Issues = "https://github.com/cyschneck/Muller-EOT/issues"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["muller_eot"]
