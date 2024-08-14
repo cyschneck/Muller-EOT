@@ -25,9 +25,9 @@ import muller_eot
 # e = eccentricity of Earth = 0.0167
 # ε = obliquity of Earth = 23.45◦
 
-def calculateDifferenceEOTMinutes(eccentricity=None,
-								obliquity=None,
-								orbit_period=None):
+def calculateDifferenceEOTMinutes(eccentricity:float = None,
+								obliquity: float = None,
+								orbit_period: float = None) -> dict:
 	# Calculate the time difference (in minutes) for the Equation of Time
 
 	muller_eot.errorHandlingEOT(eccentricity=eccentricity,
@@ -89,15 +89,15 @@ def calculateDifferenceEOTMinutes(eccentricity=None,
 		eot_dict[day] = eot_min_difference
 	return eot_dict
 
-def plotEOT(eot_dict=None,
-			plot_title=None,
-			plot_x_title=None,
-			plot_y_title=None,
-			show_plot=None,
-			fig_plot_color=None,
-			figsize_n=None,
-			figsize_dpi=None,
-			save_plot_name=None):
+def plotEOT(eot_dict: dict = None,
+			plot_title: str = None,
+			plot_x_title: str = None,
+			plot_y_title: str = None,
+			show_plot:bool = True,
+			fig_plot_color: str = "cornflowerblue",
+			figsize_n: int = 12,
+			figsize_dpi: int = 100,
+			save_plot_name: str = None) -> None:
 	# Plot EOT Time Differences
 	muller_eot.errorHandlingPlotEOT(eot_dict=eot_dict,
 									plot_title=plot_title,
@@ -117,7 +117,8 @@ def plotEOT(eot_dict=None,
 
 	# X - Axis, split by months
 	date_range_split_into_months = np.arange(0, round(max(orbit_days_x))+1, max(orbit_days_x)/12) # split into 12 months (based on Earth)
-	for i, value in enumerate(date_range_split_into_months): date_range_split_into_months[i] = math.floor(value) # round all values
+	for i, value in enumerate(date_range_split_into_months): 
+		date_range_split_into_months[i] = math.floor(value) # round all values
 
 	plt.xticks(date_range_split_into_months)
 	plt.xlim([min(date_range_split_into_months), max(date_range_split_into_months)])
@@ -125,7 +126,7 @@ def plotEOT(eot_dict=None,
 	plt.grid()
 
 	if plot_title is None: 
-		plt.title("EOT Minute Difference (Min = {0:.4f}, Max = {1:.4f})".format(min(eot_y), max(eot_y)))
+		plt.title(f"EOT Minute Difference (Min = {min(eot_y):.4f}, Max = {max(eot_y):.4f})")
 	else: 
 		plt.title(plot_title)
 

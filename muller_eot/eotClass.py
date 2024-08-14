@@ -3,9 +3,9 @@ import muller_eot
 
 class EOT:
 	def __init__(self,
-				eccentricity=None,
-				obliquity=None,
-				orbit_period=None):
+				eccentricity: float =None,
+				obliquity: float = None,
+				orbit_period: float = None):
 		# EOT Required
 		self.eccentricity = eccentricity
 		self.obliquity = obliquity
@@ -17,14 +17,14 @@ class EOT:
 															orbit_period=self.orbit_period)
 
 	def plotEOT(self,
-				plot_title=None,
-				plot_x_title=None,
-				plot_y_title=None,
-				show_plot=True,
-				fig_plot_color="cornflowerblue",
-				figsize_n=12,
-				figsize_dpi=100,
-				save_plot_name=None):
+				plot_title: str = None,
+				plot_x_title: str = None,
+				plot_y_title: str = None,
+				show_plot:bool = True,
+				fig_plot_color: str = "cornflowerblue",
+				figsize_n: int = 12,
+				figsize_dpi: int = 100,
+				save_plot_name: str = None):
 		# Plot the EOT time difference generated from calculateDifferenceEOTMinutes()
 		muller_eot.plotEOT(eot_dict=self.eotDayAndMinutes,
 							plot_title=plot_title,

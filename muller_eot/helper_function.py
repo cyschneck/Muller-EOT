@@ -1,12 +1,12 @@
 def calculateOrbitalPeriod(semimajor_axis):
-	# caculate orbital period (days): P**2 = a**2 where P=period and a = semimajor axis
+	# calculate orbital period (days): P**2 = a**2 where P=period and a = semimajor axis
 	# return a list of days starting at midnight
 	sidereal_year = pow(semimajor_axis, 3/2)
 	orbital_period_days = sidereal_year * 365.25
 	return orbital_period_days
 
 def calculateEccentricity(aphelion_distance, perihelion_distance):
-	# caclulate the eccentricity of orbit based on orbit
+	# calculate the eccentricity of orbit based on orbit
 	## TODO
 	eccentricity_orbit = (aphelion_distance - perihelion_distance) / (aphelion_distance + perihelion_distance)
 	return eccentricity_orbit
