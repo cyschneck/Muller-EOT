@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "Python implementation of M. Müller's "Equation of Time - Problem in Astronomy""
+version: 1.4.3
+message: "Please acknowledge the use of this software in any publications by citing:"
+authors:
+- family-names: Schneck
+  given-names: Cora Y.
+  orchid: 'https://orcid.org/0009-0009-1415-5170'
+repository-code:: "https://github.com/cyschneck/Muller-EOT"
+url: "https://github.com/cyschneck/Muller-EOT"

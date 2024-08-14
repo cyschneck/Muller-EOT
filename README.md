@@ -23,12 +23,6 @@ PyPi pip install at [pypi.org/project/muller-eot/](https://pypi.org/project/mull
 ```
 pip install muller-eot
 ```
-## Dependencies
-Python 3.7+
-```
-pip install -r requirements.txt
-```
-Requirements will also be downloaded as part of the pip download
 
 ## Functions
 The combined effect of eccentricity and obliquity create the Equation of Time components.
