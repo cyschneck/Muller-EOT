@@ -3,7 +3,7 @@
 ![license](https://img.shields.io/github/license/cyschneck/Muller-EOT)
 ![PyPi-Versions](https://img.shields.io/pypi/pyversions/Muller-EOT)
 
-A Python package for [M. Müller implementation of the "Equation of Time - Problem in Astronomy"](http://info.ifpan.edu.pl/firststep/aw-works/fsII/mul/mueller.pdf) to calculate the Equation of Time based on the individual effect of eccentricity and obliquity
+A Python package for [M. Müller implementation of the "Equation of Time - Problem in Astronomy"](http://info.ifpan.edu.pl/firststep/aw-works/fsII/mul/mueller.pdf) which calculates the Equation of Time based on the individual effect of eccentricity and obliquity
 
 ## Quickstart: muller-eot
 
